@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookCatalog.DAL.Entities
+namespace BookCatalog.Infrastructure.Business
 {
-    public class Class1
+    public interface IBookDM
     {
     }
 }

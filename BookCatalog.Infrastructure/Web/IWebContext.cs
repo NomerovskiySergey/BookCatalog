@@ -9,5 +9,6 @@
     public interface IWebContext
     {
         IServiceProviderFactory Factory { get; }
+        string ConnectionString { get; }
     }
 }
