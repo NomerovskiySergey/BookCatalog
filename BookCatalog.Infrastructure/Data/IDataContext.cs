@@ -1,8 +1,8 @@
 ﻿namespace BookCatalog.Infrastructure.Data
 {
     #region Namespaces
-    using BookCatalog.Infrastructure.Business;
-    using BookCatalog.Infrastructure.Injection;
+    using Business;
+    using Injection;
     #endregion
 
     interface IDataContext

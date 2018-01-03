@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AutorRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\BookAutorRelationRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
   </ItemGroup>

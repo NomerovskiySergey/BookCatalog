@@ -13,20 +13,8 @@
         private Lazy<IServiceProviderFactory> _factory = new Lazy<IServiceProviderFactory>();
         private string ConectionStringKey = "TestKey";
 
-        public string ConnectionString
-        {
-            get
-            {
-                return ConfigurationManager.ConnectionStrings["ConectionStringKey"].ConnectionString;
-            }
-        }
+        public string ConnectionString => ConfigurationManager.ConnectionStrings["ConectionStringKey"].ConnectionString;
 
-        public IServiceProviderFactory Factory
-        {
-            get
-            {
-                return _factory.Value;
-            }
-        }
+        public IServiceProviderFactory Factory => _factory.Value;
     }
 }

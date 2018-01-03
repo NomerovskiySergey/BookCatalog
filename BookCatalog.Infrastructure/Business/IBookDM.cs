@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookCatalog.Infrastructure.Business
+﻿namespace BookCatalog.Infrastructure.Business
 {
+    #region Namespaces
+    using ViewModel;
+    using System.Collections.Generic;
+    #endregion
     public interface IBookDM
     {
+        BookVM GetBook(int id);
+        IEnumerable<BookVM> GetBooks();
     }
 }

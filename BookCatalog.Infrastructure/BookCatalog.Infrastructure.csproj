@@ -45,12 +45,18 @@
     <Compile Include="Business\IBusinessContext.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\Repository\IAutorRepository.cs" />
     <Compile Include="Data\Repository\IRepository.cs" />
     <Compile Include="Injection\IServiceProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\IWebContext.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BookCatalog.ViewModel\BookCatalog.ViewModels.csproj">
+      <Project>{1E83F57F-DC5C-408D-B311-5B11A5940823}</Project>
+      <Name>BookCatalog.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

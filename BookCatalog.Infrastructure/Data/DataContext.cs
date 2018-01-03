@@ -12,13 +12,16 @@
         {
             _businessContext = context;
             _factory = context.Factory;
+            _connectionString = context.WebContext.ConnectionString;
         }
         #endregion
 
         private IBusinessContext _businessContext;
         private IServiceProviderFactory _factory;
+        public readonly string _connectionString;
 
-        public IBusinessContext BusinessContext { get { return _businessContext; } }
-        public IServiceProviderFactory Factory { get { return _factory; } }
+        public IBusinessContext BusinessContext => _businessContext;
+        public IServiceProviderFactory Factory => _factory;
+        public string ConnectionString => _connectionString;
     }
 }

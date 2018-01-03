@@ -18,8 +18,8 @@
         private IServiceProviderFactory _factory;
         private IWebContext _webContext;
 
-        public IServiceProviderFactory Factory { get { return _factory; } }
+        public IServiceProviderFactory Factory => _factory; 
 
-        public IWebContext WebContext { get { return _webContext; } }
+        public IWebContext WebContext => _webContext;
     }
 }

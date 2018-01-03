@@ -1,4 +1,4 @@
-﻿namespace BookCatalog.Infrastructure.Data.Repository
+﻿namespace BookCatalog.DAL.Repositories
 {
     public class BookAutorRelationRepository
     {

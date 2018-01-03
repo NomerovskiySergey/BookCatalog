@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book\BookDM.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +54,10 @@
     <ProjectReference Include="..\BookCatalog.Infrastructure\BookCatalog.Infrastructure.csproj">
       <Project>{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}</Project>
       <Name>BookCatalog.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookCatalog.ViewModel\BookCatalog.ViewModels.csproj">
+      <Project>{1E83F57F-DC5C-408D-B311-5B11A5940823}</Project>
+      <Name>BookCatalog.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
