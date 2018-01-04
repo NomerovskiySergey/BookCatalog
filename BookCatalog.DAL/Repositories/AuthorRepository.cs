@@ -1,14 +1,17 @@
 ﻿namespace BookCatalog.DAL.Repositories
 {
     #region Namespaces
-        using System;
-        using System.Collections.Generic;
-        using Entities;
-        using Infrastructure.Business;
-        using Infrastructure.Data.Repository;
+    using System;
+    using System.Collections.Generic;
+    using Entities;
+    using Infrastructure.Business;
+    using Infrastructure.Data.Repository;
+    using System.Data;
+    using System.Data.SqlClient;
+    using DapperExtensions;
     #endregion
 
-    public class AutorsRepository : BaseRepository, IAutorsRepository<int, AutorEM>
+    public class AutorsRepository : BaseRepository, IAutorsRepository<int, AuthorEM>
     {
         #region Constructors
         public AutorsRepository(IBusinessContext context) : base(context){}
@@ -24,22 +27,22 @@
             throw new NotImplementedException();
         }
 
-        public AutorEM Get(int id)
+        public AuthorEM Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<AutorEM> GetAll()
+        public IEnumerable<AuthorEM> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public int Insert(AutorEM entity)
+        public int Insert(AuthorEM entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(AutorEM entity)
+        public void Update(AuthorEM entity)
         {
             throw new NotImplementedException();
         }

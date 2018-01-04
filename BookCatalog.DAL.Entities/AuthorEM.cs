@@ -7,7 +7,7 @@
 
 
     [Table("tbl_Autors")]
-    public class AutorEM
+    public class AuthorEM
     {
         [Key]
         public int Id { get; set; }

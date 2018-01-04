@@ -5,7 +5,7 @@
     using Injection;
     #endregion
 
-    interface IDataContext
+    public interface IDataContext
     {
         IServiceProviderFactory Factory { get; }
         IBusinessContext BusinessContext { get; }

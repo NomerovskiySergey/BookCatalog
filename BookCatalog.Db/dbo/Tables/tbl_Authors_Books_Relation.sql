@@ -3,7 +3,7 @@
     [Autor] INT NOT NULL,
     [Book]  INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    FOREIGN KEY ([Autor]) REFERENCES [dbo].[tbl_Autors] ([Id]),
+    FOREIGN KEY ([Autor]) REFERENCES [dbo].[tbl_Authors] ([Id]),
     FOREIGN KEY ([Book]) REFERENCES [dbo].[tbl_Books] ([Id])
 );
 

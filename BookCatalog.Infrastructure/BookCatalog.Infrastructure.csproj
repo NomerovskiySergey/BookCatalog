@@ -45,7 +45,8 @@
     <Compile Include="Business\IBusinessContext.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\IDataContext.cs" />
-    <Compile Include="Data\Repository\IAutorRepository.cs" />
+    <Compile Include="Data\Repository\IBookRepository.cs" />
+    <Compile Include="Data\Repository\IAuthorRepository.cs" />
     <Compile Include="Data\Repository\IRepository.cs" />
     <Compile Include="Injection\IServiceProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

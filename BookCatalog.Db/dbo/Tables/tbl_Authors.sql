@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[tbl_Autors] (
+﻿CREATE TABLE [dbo].[tbl_Authors] (
     [Id]        INT           IDENTITY (1, 1) NOT NULL,
     [FirstName] VARCHAR (MAX) NOT NULL,
     [LastName]  VARCHAR (MAX) NOT NULL,

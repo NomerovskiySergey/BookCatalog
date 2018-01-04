@@ -66,11 +66,11 @@
     <Folder Include="DataSeeding\Script.PostDeployment" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\tbl_Autors.sql" />
+    <Build Include="dbo\Tables\tbl_Authors.sql" />
     <Build Include="dbo\Tables\tbl_Books.sql" />
-    <Build Include="dbo\Tables\tbl_Autors_Books_Relation.sql" />
-    <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Autors.sql" />
-    <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Autors_Books_Relation.sql" />
+    <Build Include="dbo\Tables\tbl_Authors_Books_Relation.sql" />
+    <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Authors.sql" />
+    <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Authors_Books_Relation.sql" />
     <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Books.sql" />
   </ItemGroup>
   <ItemGroup>
