@@ -1,25 +1,23 @@
-﻿namespace BookCatalog.Infrastructure.Business
-{
-    #region Namespaces
-    using Injection;
-    using Web;
-    #endregion
+﻿using BookCatalog.Infrastructure.Context;
+using BookCatalog.Infrastructure.Injection;
 
+namespace BookCatalog.Business.Tools
+{
     public class BusinessContext : IBusinessContext
     {
         #region Constructor
         public BusinessContext(IWebContext context)
         {
-            _webContext = context;
+            _connectionString = context.ConnectionString;
             _factory = context.Factory;
         }
         #endregion
 
         private IServiceProviderFactory _factory;
-        private IWebContext _webContext;
+        private string _connectionString;
 
         public IServiceProviderFactory Factory => _factory; 
 
-        public IWebContext WebContext => _webContext;
+        public string ConnectionString => _connectionString;
     }
 }

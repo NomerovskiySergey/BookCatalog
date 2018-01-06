@@ -1,15 +1,16 @@
-﻿namespace BookCatalog.Business.Book
+﻿using System.Collections.Generic;
+using BookCatalog.Infrastructure.Business;
+using BookCatalog.Infrastructure.Context;
+using BookCatalog.ViewModel;
+
+namespace BookCatalog.Business.Book
 {
-    using ViewModel;
-    #region Namespaces
-    using Infrastructure.Business;
-    using Infrastructure.Web;
-    using System.Collections.Generic;
-    #endregion
-    public class BookDM : BusinessContext, IBookDM
+    public class BookDM : BaseDomain, IBookDM
     {
         #region Constructors
         public BookDM(IWebContext context) : base(context) { }
+
+        public BookDM(IBusinessContext context) : base(context) { }
         #endregion
 
         public BookVM GetBook(int id)

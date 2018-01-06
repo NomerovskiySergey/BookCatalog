@@ -1,9 +1,7 @@
-﻿namespace BookCatalog.ViewModel
-{
-    #region Namespaces
-    using System;
-    #endregion
+﻿using System;
 
+namespace BookCatalog.ViewModel
+{
     public class BookVM
     {
         public int Id { get; set; }

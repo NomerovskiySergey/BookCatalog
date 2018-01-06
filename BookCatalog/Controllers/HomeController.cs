@@ -1,17 +1,17 @@
-﻿namespace BookCatalog.Controllers
+﻿using  System.Web.Mvc;
+using BookCatalog.Infrastructure.Business;
+
+namespace BookCatalog.Controllers
 {
-    
-    #region Namespaces
-    using System.Web.Mvc;
-    using Business.Author;
-    #endregion
 
     public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            var dm = new AuthorDM(this);
-
+            using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext))
+            {
+                bookDm.GetBooks();
+            }
 
             return View();
         }

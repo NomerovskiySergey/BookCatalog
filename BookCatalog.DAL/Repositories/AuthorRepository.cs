@@ -1,50 +1,15 @@
-﻿namespace BookCatalog.DAL.Repositories
-{
-    #region Namespaces
-    using System;
-    using System.Collections.Generic;
-    using Entities;
-    using Infrastructure.Business;
-    using Infrastructure.Data.Repository;
-    using System.Data;
-    using System.Data.SqlClient;
-    using DapperExtensions;
-    #endregion
+﻿using BookCatalog.DAL.Entities;
+using BookCatalog.Infrastructure.Context;
+using BookCatalog.Infrastructure.Data.Repository;
 
-    public class AutorsRepository : BaseRepository, IAutorsRepository<int, AuthorEM>
+namespace BookCatalog.DAL.Repositories
+{
+    public class AutorsRepository : DapperBaseRepository<int, AuthorEM>, IAuthorsRepository
     {
         #region Constructors
         public AutorsRepository(IBusinessContext context) : base(context){}
+
+        public AutorsRepository(IDataContext context) : base(context) { }
         #endregion
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        public AuthorEM Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<AuthorEM> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Insert(AuthorEM entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(AuthorEM entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

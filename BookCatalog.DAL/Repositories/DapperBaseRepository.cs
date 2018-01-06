@@ -1,13 +1,11 @@
-﻿namespace BookCatalog.DAL.Repositories
-{
-    #region Namespaces
-    using System;
-    using System.Collections.Generic;
-    using Infrastructure.Business;
-    using Infrastructure.Data;
-    using Infrastructure.Data.Repository;
-    #endregion
+﻿using System;
+using System.Collections.Generic;
+using BookCatalog.DAL.Tools;
+using BookCatalog.Infrastructure.Context;
+using BookCatalog.Infrastructure.Data.Repository;
 
+namespace BookCatalog.DAL.Repositories
+{
     public class DapperBaseRepository<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class
     {
         private IDataContext _context;

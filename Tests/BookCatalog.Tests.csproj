@@ -51,9 +51,24 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unity\UnityTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookCatalog.Infrastructure\BookCatalog.Infrastructure.csproj">
+      <Project>{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}</Project>
+      <Name>BookCatalog.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookCatalog.ViewModel\BookCatalog.ViewModels.csproj">
+      <Project>{1E83F57F-DC5C-408D-B311-5B11A5940823}</Project>
+      <Name>BookCatalog.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Initializer\BookCatalog.Initializer.csproj">
+      <Project>{9B955131-DB48-4707-8033-E56513FF4687}</Project>
+      <Name>BookCatalog.Initializer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,11 +1,8 @@
-﻿namespace BookCatalog.DAL.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BookCatalog.DAL.Entities
 {
-    #region Namespaces
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    #endregion
-
-
     [Table("tbl_Autors")]
     public class AuthorEM
     {

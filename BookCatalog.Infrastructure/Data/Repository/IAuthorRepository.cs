@@ -1,6 +1,8 @@
-﻿namespace BookCatalog.Infrastructure.Data.Repository
+﻿using BookCatalog.DAL.Entities;
+
+namespace BookCatalog.Infrastructure.Data.Repository
 {
-    public interface IAutorsRepository<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class
+    public interface IAuthorsRepository : IRepository<int, AuthorEM>
     {
     }
 }

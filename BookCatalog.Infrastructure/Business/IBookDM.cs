@@ -1,10 +1,10 @@
-﻿namespace BookCatalog.Infrastructure.Business
+﻿using System;
+using System.Collections.Generic;
+using BookCatalog.ViewModel;
+
+namespace BookCatalog.Infrastructure.Business
 {
-    #region Namespaces
-    using ViewModel;
-    using System.Collections.Generic;
-    #endregion
-    public interface IBookDM
+    public interface IBookDM : IDisposable
     {
         BookVM GetBook(int id);
         IEnumerable<BookVM> GetBooks();

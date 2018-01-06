@@ -1,20 +1,20 @@
-﻿namespace BookCatalog.Controllers
+﻿using System.Configuration;
+using System.Web.Mvc;
+using BookCatalog.Infrastructure.Context;
+using BookCatalog.Initializer;
+
+namespace BookCatalog.Controllers
 {
-    #region Namespaces
-    using System;
-    using BookCatalog.Infrastructure.Web;
-    using System.Web.Mvc;
-    using BookCatalog.Infrastructure.Injection;
-    using System.Configuration;
-    #endregion
-
-    public class BaseController : Controller, IWebContext
+    public class BaseController : Controller
     {
-        private Lazy<IServiceProviderFactory> _factory = new Lazy<IServiceProviderFactory>();
-        private string ConectionStringKey = "TestKey";
+        #region Constructors
+        public BaseController()
+        {
+            _context = new WebContext(ConfigurationManager.ConnectionStrings["BookCatalog"].ConnectionString);
+        }
+        #endregion
 
-        public string ConnectionString => ConfigurationManager.ConnectionStrings["ConectionStringKey"].ConnectionString;
-
-        public IServiceProviderFactory Factory => _factory.Value;
+        IWebContext _context;
+        protected IWebContext WebContext => _context;
     }
 }

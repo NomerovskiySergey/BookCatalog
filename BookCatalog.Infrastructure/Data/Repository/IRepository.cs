@@ -1,12 +1,8 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+
 namespace BookCatalog.Infrastructure.Data.Repository
 {
-    #region Namespaces
-    using System;
-    using System.Collections.Generic;
-    #endregion
-
-
     public interface IRepository<TKey,TEntity> : IDisposable
         where TEntity : class
     {
