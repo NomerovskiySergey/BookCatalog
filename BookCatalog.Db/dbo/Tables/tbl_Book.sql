@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[tbl_Books] (
+﻿CREATE TABLE [dbo].[tbl_Book] (
     [Id]          INT           IDENTITY (1, 1) NOT NULL,
     [Title]       VARCHAR (MAX) NOT NULL,
     [ReleaseDate] DATETIME      NOT NULL,

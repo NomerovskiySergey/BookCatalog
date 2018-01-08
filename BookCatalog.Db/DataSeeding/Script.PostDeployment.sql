@@ -11,5 +11,5 @@
 */
 
 :r .\Script.PostDeployment\Insert_tbl_Books.sql
-:r .\Script.PostDeployment\Insert_tbl_Autors.sql
-:r .\Script.PostDeployment\Insert_tbl_Autors_Books_Relation.sql
+:r .\Script.PostDeployment\Insert_tbl_Authors.sql
+:r .\Script.PostDeployment\Insert_tbl_Authors_Books_Relation.sql

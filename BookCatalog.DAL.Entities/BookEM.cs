@@ -1,10 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Dapper.Contrib.Extensions;
 
 namespace BookCatalog.DAL.Entities
 {
-    [Table("tbl_Books")]
+    [Table("tbl_Book")]
     public class BookEM
     {
         [Key]

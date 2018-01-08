@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Dapper.Contrib.Extensions;
 
 namespace BookCatalog.DAL.Entities
 {
-    [Table("tbl_Autors")]
+    [Table("tbl_Autor")]
     public class AuthorEM
     {
         [Key]
