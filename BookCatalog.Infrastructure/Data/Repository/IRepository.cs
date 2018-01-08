@@ -8,8 +8,8 @@ namespace BookCatalog.Infrastructure.Data.Repository
     {
         IEnumerable<TEntity> GetAll();
         TEntity Get(TKey id);
-        int Insert(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(TKey id);
+        long Insert(TEntity entity);
+        bool Update(TEntity entity);
+        void Delete(TEntity entity);
     }
 }

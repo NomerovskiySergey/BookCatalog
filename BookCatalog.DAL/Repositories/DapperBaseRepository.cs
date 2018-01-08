@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BookCatalog.DAL.Tools;
 using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Data.Repository;
+using System.Data.SqlClient;
+using Dapper.Contrib.Extensions;
 
 namespace BookCatalog.DAL.Repositories
 {
@@ -24,34 +25,49 @@ namespace BookCatalog.DAL.Repositories
 
         protected IDataContext Context => _context;
 
-        public void Delete(TKey id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
 
         public TEntity Get(TKey id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+                return connection.Get<TEntity>(id);
+            }
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+                return connection.GetAll<TEntity>();
+            }
         }
 
-        public int Insert(TEntity entity)
+        public long Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+                return connection.Insert(entity);
+            }
         }
 
-        public void Update(TEntity entity)
+        public bool Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+               return connection.Update(entity);
+            }
+        }
+
+        public void Delete(TEntity entity)
+        {
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+                connection.Delete(entity);
+            }
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

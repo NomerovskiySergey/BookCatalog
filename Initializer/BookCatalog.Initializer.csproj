@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.5.4\lib\net45\CommonServiceLocator.dll</HintPath>
       <Private>True</Private>
@@ -37,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceProviderFactory.cs" />
     <Compile Include="ServiceProviderParametrResolver.cs" />
@@ -85,6 +91,10 @@
       <Project>{de207555-1559-49d9-b2af-e9744ce9282c}</Project>
       <Name>BookCatalog.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BookCatalog.DAL.Entities\BookCatalog.DAL.Entities.csproj">
+      <Project>{1531C7CC-2371-48FD-8C06-424A692C2B1D}</Project>
+      <Name>BookCatalog.DAL.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookCatalog.DAL\BookCatalog.DAL.csproj">
       <Project>{03644716-f045-43e9-a4a1-74ace327a451}</Project>
       <Name>BookCatalog.DAL</Name>
@@ -92,6 +102,10 @@
     <ProjectReference Include="..\BookCatalog.Infrastructure\BookCatalog.Infrastructure.csproj">
       <Project>{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}</Project>
       <Name>BookCatalog.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookCatalog.ViewModel\BookCatalog.ViewModels.csproj">
+      <Project>{1E83F57F-DC5C-408D-B311-5B11A5940823}</Project>
+      <Name>BookCatalog.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
