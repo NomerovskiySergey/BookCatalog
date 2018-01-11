@@ -78,7 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelMapper.cs" />
+    <Compile Include="MapperInitializer\MapperService.cs" />
+    <Compile Include="MapperInitializer\ModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceProviderFactory.cs" />
     <Compile Include="ServiceProviderParametrResolver.cs" />

@@ -2,7 +2,7 @@
 
 namespace BookCatalog.DAL.Entities
 {
-    [Table("tbl_Autor")]
+    [Table("tbl_Author")]
     public class AuthorEM
     {
         [Key]

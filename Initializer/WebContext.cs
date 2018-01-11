@@ -1,5 +1,7 @@
-﻿using BookCatalog.Infrastructure.Context;
+﻿using BookCatalog.Infrastructure;
+using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Injection;
+using BookCatalog.Initializer.MapperInitializer;
 
 namespace BookCatalog.Initializer
 {
@@ -10,6 +12,7 @@ namespace BookCatalog.Initializer
         {
             _connectionString = connectionString;
             _factory = UnitySetup.CreateServiceProviderFactory();
+            _mapper = new MapperService();
         }
         #endregion
 
@@ -18,5 +21,8 @@ namespace BookCatalog.Initializer
 
         IServiceProviderFactory _factory;
         public IServiceProviderFactory Factory => _factory;
+
+        private IMapperService _mapper;
+        public IMapperService Mapper => _mapper;
     }
 }

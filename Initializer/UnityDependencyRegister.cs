@@ -35,15 +35,18 @@ namespace BookCatalog.Initializer
         {
             _container.RegisterType<IAuthorDM, AuthorDM>(new InjectionConstructor(typeof(IBusinessContext)));
             _container.RegisterType<IAuthorDM, AuthorDM>(new InjectionConstructor(typeof(IWebContext)));
-
+   
             _container.RegisterType<IBookDM, BookDM>(new InjectionConstructor(typeof(IBusinessContext)));
             _container.RegisterType<IBookDM, BookDM>(new InjectionConstructor(typeof(IWebContext)));
         }
 
         private static void RegisterDataTypes()
         {
-            _container.RegisterType<IBookRepository, BooksRepository>();
-            _container.RegisterType<IAuthorsRepository, AutorsRepository>();
+            _container.RegisterType<IBookRepository, BookRepository>(new InjectionConstructor(typeof(IBusinessContext)));
+            _container.RegisterType<IBookRepository, BookRepository>(new InjectionConstructor(typeof(IDataContext)));
+
+            _container.RegisterType<IAuthorRepository, AuthorRepository>(new InjectionConstructor(typeof(IBusinessContext)));
+            _container.RegisterType<IAuthorRepository, AuthorRepository>(new InjectionConstructor(typeof(IDataContext)));
         }
     }
 }

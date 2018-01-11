@@ -178,7 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,11 +209,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Author\" />
+    <Folder Include="Views\Book\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookCatalog.Business\BookCatalog.Business.csproj">
       <Project>{DE207555-1559-49D9-B2AF-E9744CE9282C}</Project>
       <Name>BookCatalog.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookCatalog.DAL.Entities\BookCatalog.DAL.Entities.csproj">
+      <Project>{1531C7CC-2371-48FD-8C06-424A692C2B1D}</Project>
+      <Name>BookCatalog.DAL.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookCatalog.Infrastructure\BookCatalog.Infrastructure.csproj">
       <Project>{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}</Project>

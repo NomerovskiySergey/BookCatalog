@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using BookCatalog.DAL.Entities;
 using BookCatalog.Infrastructure.Business;
 using BookCatalog.Infrastructure.Context;
+using BookCatalog.Infrastructure.Data.Repository;
 using BookCatalog.ViewModel;
 
 namespace BookCatalog.Business.Book
@@ -20,7 +23,10 @@ namespace BookCatalog.Business.Book
 
         public IEnumerable<BookVM> GetBooks()
         {
-            throw new System.NotImplementedException();
+            using (var repo = Context.Factory.GetService<IBookRepository>(Context))
+            {
+                return Context.MapService.MapTo<IEnumerable<BookVM>, IEnumerable<BookEM>>(repo.GetAll());
+            }
         }
     }
 }

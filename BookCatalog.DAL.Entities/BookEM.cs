@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Dapper.Contrib.Extensions;
 
 namespace BookCatalog.DAL.Entities
@@ -12,5 +13,9 @@ namespace BookCatalog.DAL.Entities
         public DateTime ReleaseDate { get; set; }
         public int Rating { get; set; }
         public int PageCount { get; set; }
+
+        #region Navigation property
+        public IEnumerable<AuthorEM> Author { get; set; }
+        #endregion
     }
 }

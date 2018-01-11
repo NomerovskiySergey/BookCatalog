@@ -2,7 +2,7 @@
 
 namespace BookCatalog.Infrastructure.Data.Repository
 {
-    public interface IAuthorsRepository : IRepository<int, AuthorEM>
+    public interface IAuthorRepository : IRepository<int, AuthorEM>
     {
     }
 }

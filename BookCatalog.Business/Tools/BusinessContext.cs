@@ -1,4 +1,5 @@
-﻿using BookCatalog.Infrastructure.Context;
+﻿using BookCatalog.Infrastructure;
+using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Injection;
 
 namespace BookCatalog.Business.Tools
@@ -15,9 +16,12 @@ namespace BookCatalog.Business.Tools
 
         private IServiceProviderFactory _factory;
         private string _connectionString;
+        private IMapperService _mapService;
 
         public IServiceProviderFactory Factory => _factory; 
 
         public string ConnectionString => _connectionString;
+
+        public IMapperService MapService => _mapService;
     }
 }

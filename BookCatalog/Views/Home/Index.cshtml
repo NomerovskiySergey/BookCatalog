@@ -1,7 +1,15 @@
-﻿
+﻿@model IEnumerable<BookCatalog.ViewModel.BookVM>
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+@foreach (var book in Model)
+{
+    <p>@book.Id</p>
+    <p>@book.Author</p>
+    <p>@book.PageCount</p>
+    <p>@book.Rating</p>
+    <p>@book.ReleaseDate</p>
+    <p>@book.Title</p>
+}

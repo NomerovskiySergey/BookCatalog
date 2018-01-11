@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BookCatalog.ViewModel
 {
@@ -9,5 +10,9 @@ namespace BookCatalog.ViewModel
         public DateTime ReleaseDate { get; set; }
         public int Rating { get; set; }
         public int PageCount { get; set; }
+
+        #region Navigation property
+        public IEnumerable<AuthorVM> Author { get; set; }
+        #endregion
     }
 }

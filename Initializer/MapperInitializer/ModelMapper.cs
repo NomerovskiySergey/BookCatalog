@@ -1,14 +1,13 @@
-﻿using AutoMapper;
-using BookCatalog.DAL.Entities;
+﻿using BookCatalog.DAL.Entities;
 using BookCatalog.ViewModel;
 
-namespace BookCatalog.Initializer
+namespace BookCatalog.Initializer.MapperInitializer
 {
     public class ModelMapper
     {
         public static void Init()
         {
-            Mapper.Initialize((map) =>
+            AutoMapper.Mapper.Initialize((map) =>
             {
                 map.CreateMap<BookEM, BookVM>();
                 map.CreateMap<AuthorEM, AuthorVM>();

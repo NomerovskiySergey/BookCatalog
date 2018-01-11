@@ -6,5 +6,6 @@ namespace BookCatalog.Infrastructure.Context
     {
         string ConnectionString { get; }
         IServiceProviderFactory Factory { get; }
+        IMapperService MapService { get; }
     }
 }

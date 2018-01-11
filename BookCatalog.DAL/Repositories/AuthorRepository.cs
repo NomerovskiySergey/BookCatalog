@@ -4,12 +4,12 @@ using BookCatalog.Infrastructure.Data.Repository;
 
 namespace BookCatalog.DAL.Repositories
 {
-    public class AutorsRepository : DapperBaseRepository<int, AuthorEM>, IAuthorsRepository
+    public class AuthorRepository : DapperBaseRepository<int, AuthorEM>, IAuthorRepository
     {
         #region Constructors
-        public AutorsRepository(IBusinessContext context) : base(context){}
+        public AuthorRepository(IBusinessContext context) : base(context){}
 
-        public AutorsRepository(IDataContext context) : base(context) { }
+        public AuthorRepository(IDataContext context) : base(context) { }
         #endregion
     }
 }

@@ -1,5 +1,7 @@
-﻿using  System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using BookCatalog.Infrastructure.Business;
+using BookCatalog.ViewModel;
 
 namespace BookCatalog.Controllers
 {
@@ -8,12 +10,14 @@ namespace BookCatalog.Controllers
     {
         public ActionResult Index()
         {
-            using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext))
+            IEnumerable<BookVM> catalog;
+
+            using (var catalogDm = WebContext.Factory.GetService<IBookDM>(WebContext))
             {
-                bookDm.GetBooks();
+                catalog = catalogDm.GetBooks();
             }
 
-            return View();
+            return View(catalog);
         }
     }
 }

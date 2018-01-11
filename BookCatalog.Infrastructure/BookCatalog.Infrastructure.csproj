@@ -79,6 +79,7 @@
     <Compile Include="Data\Repository\IBookRepository.cs" />
     <Compile Include="Data\Repository\IAuthorRepository.cs" />
     <Compile Include="Data\Repository\IRepository.cs" />
+    <Compile Include="IMapperService.cs" />
     <Compile Include="Injection\IServiceProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Context\IWebContext.cs" />
