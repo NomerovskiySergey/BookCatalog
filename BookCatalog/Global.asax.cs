@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
+using BookCatalog.App_Start;
 using BookCatalog.Initializer.MapperInitializer;
 
 namespace BookCatalog
@@ -10,6 +12,7 @@ namespace BookCatalog
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             ModelMapper.Init();
         }
     }

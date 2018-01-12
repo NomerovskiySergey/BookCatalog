@@ -3,7 +3,7 @@
 namespace BookCatalog.Infrastructure.Context { 
     public interface IWebContext
     {
+        IRootContext RootContext { get; set; }
         IServiceProviderFactory Factory { get; }
-        string ConnectionString { get; }
     }
 }

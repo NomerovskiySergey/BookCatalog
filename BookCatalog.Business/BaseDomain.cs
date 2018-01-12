@@ -6,21 +6,14 @@ namespace BookCatalog.Business
 {
     public class BaseDomain : IDisposable
     {
-        private IBusinessContext _businessContext;
+        protected IBusinessContext Context { get; set; }
 
         #region Constructors
-        public BaseDomain(IBusinessContext context)
+        public BaseDomain(IRootContext context)
         {
-            _businessContext = context;
-        }
-
-        public BaseDomain(IWebContext context)
-        {
-            _businessContext = new BusinessContext(context);
+            Context = new BusinessContext(context);
         }
         #endregion
-
-        protected IBusinessContext Context => _businessContext;
 
         #region IDisposable Support
         private bool disposedValue = false; // Для определения избыточных вызовов

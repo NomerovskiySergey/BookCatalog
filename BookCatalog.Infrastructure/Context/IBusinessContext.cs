@@ -4,8 +4,8 @@ namespace BookCatalog.Infrastructure.Context
 {
     public interface IBusinessContext
     {
-        string ConnectionString { get; }
+        IRootContext RootContext { get; set; }
         IServiceProviderFactory Factory { get; }
-        IMapperService MapService { get; }
+        IMapperService Mapper { get; }
     }
 }

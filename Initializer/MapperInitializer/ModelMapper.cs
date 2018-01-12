@@ -9,11 +9,8 @@ namespace BookCatalog.Initializer.MapperInitializer
         {
             AutoMapper.Mapper.Initialize((map) =>
             {
-                map.CreateMap<BookEM, BookVM>();
-                map.CreateMap<AuthorEM, AuthorVM>();
-
-                map.CreateMap<BookVM, BookEM>();
-                map.CreateMap<AuthorVM, AuthorEM>();
+                map.CreateMap<BookEM, BookVM>().ReverseMap();
+                map.CreateMap<BookVM, BookEM>().ReverseMap();
             });
         }
     }

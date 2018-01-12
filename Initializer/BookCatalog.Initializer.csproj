@@ -81,6 +81,7 @@
     <Compile Include="MapperInitializer\MapperService.cs" />
     <Compile Include="MapperInitializer\ModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RootContext.cs" />
     <Compile Include="ServiceProviderFactory.cs" />
     <Compile Include="ServiceProviderParametrResolver.cs" />
     <Compile Include="UnityDependencyRegister.cs" />

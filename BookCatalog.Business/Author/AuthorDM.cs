@@ -9,9 +9,7 @@ namespace BookCatalog.Business.Author
     public class AuthorDM : BaseDomain, IAuthorDM
     {
         #region Constructors
-        public AuthorDM(IWebContext context) : base(context) { }
-
-        public AuthorDM(IBusinessContext context) : base(context) { }
+        public AuthorDM(IRootContext context) : base(context) { }
         #endregion
 
         public AuthorVM GetAuthor(int id)

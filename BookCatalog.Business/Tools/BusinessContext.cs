@@ -7,21 +7,17 @@ namespace BookCatalog.Business.Tools
     public class BusinessContext : IBusinessContext
     {
         #region Constructor
-        public BusinessContext(IWebContext context)
+        public BusinessContext(IRootContext context)
         {
-            _connectionString = context.ConnectionString;
-            _factory = context.Factory;
+            RootContext = context;
         }
         #endregion
 
-        private IServiceProviderFactory _factory;
-        private string _connectionString;
-        private IMapperService _mapService;
 
-        public IServiceProviderFactory Factory => _factory; 
+        public IServiceProviderFactory Factory => RootContext.Factory; 
 
-        public string ConnectionString => _connectionString;
+        public IRootContext RootContext { get; set; }
 
-        public IMapperService MapService => _mapService;
+        public IMapperService Mapper => RootContext.Mapper;
     }
 }

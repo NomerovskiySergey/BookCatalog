@@ -76,6 +76,7 @@
     <Compile Include="Business\IBookDM.cs" />
     <Compile Include="Context\IBusinessContext.cs" />
     <Compile Include="Context\IDataContext.cs" />
+    <Compile Include="Context\IRootContext.cs" />
     <Compile Include="Data\Repository\IBookRepository.cs" />
     <Compile Include="Data\Repository\IAuthorRepository.cs" />
     <Compile Include="Data\Repository\IRepository.cs" />

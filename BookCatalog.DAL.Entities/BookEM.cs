@@ -15,7 +15,7 @@ namespace BookCatalog.DAL.Entities
         public int PageCount { get; set; }
 
         #region Navigation property
-        public IEnumerable<AuthorEM> Author { get; set; }
+        public List<AuthorEM> Author { get; set; }
         #endregion
     }
 }

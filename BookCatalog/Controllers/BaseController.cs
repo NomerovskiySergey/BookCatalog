@@ -10,11 +10,10 @@ namespace BookCatalog.Controllers
         #region Constructors
         public BaseController()
         {
-            _context = new WebContext(ConfigurationManager.ConnectionStrings["BookCatalog"].ConnectionString);
+            WebContext = new WebContext(ConfigurationManager.ConnectionStrings["BookCatalog"].ConnectionString);
         }
         #endregion
 
-        IWebContext _context;
-        protected IWebContext WebContext => _context;
+        protected IWebContext WebContext { get; }
     }
 }

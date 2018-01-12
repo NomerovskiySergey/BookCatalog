@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using BookCatalog.DAL.Tools;
 using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Data.Repository;
 using System.Data.SqlClient;
@@ -7,26 +6,20 @@ using Dapper.Contrib.Extensions;
 
 namespace BookCatalog.DAL.Repositories
 {
-    public class DapperBaseRepository<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class
+    public abstract class DapperBaseRepository<TKey, TEntity> : IRepository<TKey, TEntity> where TEntity : class
     {
-        private IDataContext _context;
+        protected IRootContext Context { get; set; }
 
         #region Constructors
-        public DapperBaseRepository(IBusinessContext context)
-        {
-            _context = new DataContext(context);
-        }
 
-        public DapperBaseRepository(IDataContext context)
+        public DapperBaseRepository(IRootContext context)
         {
-            _context = context;
+            Context = context;
         }
         #endregion
 
-        protected IDataContext Context => _context;
 
-
-        public TEntity Get(TKey id)
+        public virtual TEntity Get(TKey id)
         {
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
             {
@@ -34,7 +27,7 @@ namespace BookCatalog.DAL.Repositories
             }
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
             {
@@ -42,7 +35,7 @@ namespace BookCatalog.DAL.Repositories
             }
         }
 
-        public long Insert(TEntity entity)
+        public virtual long Insert(TEntity entity)
         {
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
             {
@@ -50,7 +43,7 @@ namespace BookCatalog.DAL.Repositories
             }
         }
 
-        public bool Update(TEntity entity)
+        public virtual bool Update(TEntity entity)
         {
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
             {
@@ -58,7 +51,7 @@ namespace BookCatalog.DAL.Repositories
             }
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
             {

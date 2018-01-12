@@ -1,7 +1,6 @@
-﻿using BookCatalog.Infrastructure;
+﻿using System;
 using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Injection;
-using BookCatalog.Initializer.MapperInitializer;
 
 namespace BookCatalog.Initializer
 {
@@ -10,19 +9,14 @@ namespace BookCatalog.Initializer
         #region Constructor
         public WebContext(string connectionString)
         {
-            _connectionString = connectionString;
-            _factory = UnitySetup.CreateServiceProviderFactory();
-            _mapper = new MapperService();
+            RootContext = new RootContext(connectionString);
         }
         #endregion
 
-        private string _connectionString;
-        public string ConnectionString => _connectionString;
+        private IServiceProviderFactory _factory;
 
-        IServiceProviderFactory _factory;
-        public IServiceProviderFactory Factory => _factory;
+        public IRootContext RootContext { get; set; }
 
-        private IMapperService _mapper;
-        public IMapperService Mapper => _mapper;
+        public IServiceProviderFactory Factory => RootContext.Factory;
     }
 }

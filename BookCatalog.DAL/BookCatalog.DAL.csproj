@@ -90,7 +90,6 @@
     <Compile Include="Repositories\AuthorRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Repositories\DapperBaseRepository.cs" />
-    <Compile Include="Tools\DataContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookCatalog.DAL.Entities\BookCatalog.DAL.Entities.csproj">

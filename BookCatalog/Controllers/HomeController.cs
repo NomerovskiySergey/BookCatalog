@@ -12,7 +12,7 @@ namespace BookCatalog.Controllers
         {
             IEnumerable<BookVM> catalog;
 
-            using (var catalogDm = WebContext.Factory.GetService<IBookDM>(WebContext))
+            using (var catalogDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
             {
                 catalog = catalogDm.GetBooks();
             }

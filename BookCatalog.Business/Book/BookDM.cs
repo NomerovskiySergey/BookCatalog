@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Contexts;
 using BookCatalog.DAL.Entities;
 using BookCatalog.Infrastructure.Business;
 using BookCatalog.Infrastructure.Context;
@@ -11,9 +12,7 @@ namespace BookCatalog.Business.Book
     public class BookDM : BaseDomain, IBookDM
     {
         #region Constructors
-        public BookDM(IWebContext context) : base(context) { }
-
-        public BookDM(IBusinessContext context) : base(context) { }
+        public BookDM(IRootContext context) : base(context) { }
         #endregion
 
         public BookVM GetBook(int id)
@@ -23,9 +22,9 @@ namespace BookCatalog.Business.Book
 
         public IEnumerable<BookVM> GetBooks()
         {
-            using (var repo = Context.Factory.GetService<IBookRepository>(Context))
+            using (var repo = Context.Factory.GetService<IBookRepository>(Context.RootContext))
             {
-                return Context.MapService.MapTo<IEnumerable<BookVM>, IEnumerable<BookEM>>(repo.GetAll());
+                return Context.Mapper.MapTo<IEnumerable<BookVM>, IEnumerable<BookEM>>(repo.GetAll());
             }
         }
     }
