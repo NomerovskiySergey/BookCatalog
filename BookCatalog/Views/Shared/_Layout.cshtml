@@ -15,6 +15,20 @@
 </head>
 <body>
     <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Books catalog</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index","Book")">Create book</a></li>
+                    <li><a href="@Url.Action("Index","Author")">Create author</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
         @RenderBody()
     </div>
 </body>
