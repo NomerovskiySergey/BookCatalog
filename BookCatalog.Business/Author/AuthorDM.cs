@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using BookCatalog.DAL.Entities;
 using BookCatalog.Infrastructure.Business;
 using BookCatalog.Infrastructure.Context;
+using BookCatalog.Infrastructure.Data.Repository;
 using BookCatalog.ViewModel;
 
 namespace BookCatalog.Business.Author
@@ -19,7 +21,18 @@ namespace BookCatalog.Business.Author
 
         public IEnumerable<AuthorVM> GetAuthors()
         {
-            throw new NotImplementedException();
+            using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
+            {
+                return Context.Mapper.MapTo<IEnumerable<AuthorVM>,IEnumerable<AuthorEM>>(repo.GetAll());
+            }
+        }
+
+        public IEnumerable<MultiselectAuthorVM> GetMultiselectAuthors()
+        {
+            using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
+            {
+                return Context.Mapper.MapTo<IEnumerable<MultiselectAuthorVM>, IEnumerable<AuthorEM>>(repo.GetAll());
+            }
         }
     }
 }

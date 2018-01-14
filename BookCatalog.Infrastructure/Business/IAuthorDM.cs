@@ -1,12 +1,13 @@
-﻿namespace BookCatalog.Infrastructure.Business
+﻿using System;
+using System.Collections.Generic;
+using BookCatalog.ViewModel;
+
+namespace BookCatalog.Infrastructure.Business
 {
-    #region Namespaces
-    using ViewModel;
-    using System.Collections.Generic;
-    #endregion
-    public interface IAuthorDM
+    public interface IAuthorDM : IDisposable
     {
         AuthorVM GetAuthor(int id);
         IEnumerable<AuthorVM> GetAuthors();
+        IEnumerable<MultiselectAuthorVM> GetMultiselectAuthors();
     }
 }

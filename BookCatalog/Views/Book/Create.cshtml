@@ -1,0 +1,58 @@
+﻿@using System.Web.Optimization
+@model IEnumerable<BookCatalog.ViewModel.MultiselectAuthorVM>
+
+@Styles.Render("~/bootstrap-select/css", "~/bootstrap-datetimepicker/css")
+@Scripts.Render("~/bootstrap-select/js", "~/bootstrap-datetimepicker/js", "~/book-view/js")
+
+<h3>Add book</h3>
+<div class="row">
+    <div class="col-xs-12 col-sm-6, col-md-6 col-lg-3">
+        <form>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title">
+            </div>
+            <div class="form-group">
+                <label for="releaseDate">Release date:</label>
+                <div class="input-group" id="datetimepicker">
+                    <input type="text" id="releaseDate" class="form-control" placeholder="MM/DD/YYY" data-date-format="MM/dd/YYYY"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="author">Authors:</label>
+                <select class="selectpicker form-control"
+                        id="author" 
+                        multiple data-live-search="true" 
+                        data-bind="selectedOptions: selectedAuthors">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id">@item.FullName</option>
+                    }
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <input id="rating" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="pageCount">Page count:</label>
+                <input id="pageCount" type="text" class="form-control"/>
+            </div>
+            <div class="form-group float-right">
+                <button type="button" class="btn">Save</button>
+                <button type="button" class="btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+   // var authorModel = @Html.Raw(Json.Encode(Model));
+
+    Book.Init("#datetimepicker", "#author");
+</script>
+

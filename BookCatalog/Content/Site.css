@@ -16,3 +16,6 @@ textarea {
     max-width: 280px;
 }
 
+.float-right {
+    float: right;
+}

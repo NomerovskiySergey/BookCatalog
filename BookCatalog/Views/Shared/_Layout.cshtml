@@ -11,25 +11,35 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
 
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand">Books catalog</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li><a href="@Url.Action("Index","Book")">Create book</a></li>
-                    <li><a href="@Url.Action("Index","Author")">Create author</a></li>
-                </ul>
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Books catalog</a>
             </div>
-        </nav>
-    </div>
-    <div class="container">
-        @RenderBody()
-    </div>
+            <ul class="nav navbar-nav">
+                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                <li><a href="@Url.Action("Create","Book")">Create book</a></li>
+                <li><a href="@Url.Action("Index","Author")">Create author</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    @RenderBody()
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".nav a").on("click", function () {
+            $(".nav").find(".active").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+    });
+</script>
 </body>
 </html>
