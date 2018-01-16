@@ -18,5 +18,11 @@ namespace BookCatalog.Controllers
             }
             return View(authors);
         }
+
+        [HttpGet]
+        public void CreateBook()
+        {
+            
+        }
     }
 }

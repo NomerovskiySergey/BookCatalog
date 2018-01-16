@@ -10,12 +10,17 @@
         <form>
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title">
+                <input type="text" class="form-control" id="title" data-bind="value: Title">
             </div>
             <div class="form-group">
                 <label for="releaseDate">Release date:</label>
                 <div class="input-group" id="datetimepicker">
-                    <input type="text" id="releaseDate" class="form-control" placeholder="MM/DD/YYY" data-date-format="MM/dd/YYYY"/>
+                    <input type="text" 
+                           id="releaseDate" 
+                           class="form-control" 
+                           placeholder="MM/DD/YYY" 
+                           data-date-format="MM/dd/YYYY"
+                           data-bind="value: ReleaseDate"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -26,7 +31,7 @@
                 <select class="selectpicker form-control"
                         id="author" 
                         multiple data-live-search="true" 
-                        data-bind="selectedOptions: selectedAuthors">
+                        data-bind="selectedOptions: SelectedAuthors">
                     @foreach (var item in Model)
                     {
                         <option value="@item.Id">@item.FullName</option>
@@ -36,14 +41,14 @@
             </div>
             <div class="form-group">
                 <label for="rating">Rating:</label>
-                <input id="rating" type="text" class="form-control" />
+                <input id="rating" type="text" class="form-control" data-bind="value: Rating" />
             </div>
             <div class="form-group">
                 <label for="pageCount">Page count:</label>
-                <input id="pageCount" type="text" class="form-control"/>
+                <input id="pageCount" type="text" class="form-control" data-bind="value: PageCount"/>
             </div>
             <div class="form-group float-right">
-                <button type="button" class="btn">Save</button>
+                <button type="button" class="btn" onclick="Book.onSaveClick()">Save</button>
                 <button type="button" class="btn">Cancel</button>
             </div>
         </form>
@@ -51,8 +56,12 @@
 </div>
 
 <script type="text/javascript">
-   // var authorModel = @Html.Raw(Json.Encode(Model));
+    // var authorModel = @Html.Raw(Json.Encode(Model));
+
+    Book.saveBookUrl = '@Url.Action("CreateBook", "Book")';
 
     Book.Init("#datetimepicker", "#author");
+
+
 </script>
 

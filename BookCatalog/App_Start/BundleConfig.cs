@@ -19,7 +19,7 @@ namespace BookCatalog.App_Start
 
 
 
-            bundles.Add(new ScriptBundle("~/book-view/js").Include("~/Scripts/Book/book-view.js"));
+            bundles.Add(new ScriptBundle("~/book-view/js").Include("~/Scripts/Book/createBook.js"));
         }
     }
 }
