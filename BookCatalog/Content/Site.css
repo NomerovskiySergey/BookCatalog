@@ -19,3 +19,8 @@ textarea {
 .float-right {
     float: right;
 }
+
+.errorStyle  
+{  
+    border-color: red !important;
+}

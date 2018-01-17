@@ -5,29 +5,42 @@
 
     me.saveBookUrl = '';
 
-    me.BookModelView = function () {
-        this.SelectedAuthors = ko.observableArray([]);
-        this.Title = ko.observable('Test');
-        this.ReleaseDate = ko.observable();
-        this.Rating = ko.observable(123);
-        this.PageCount = ko.observable(123123);
-    };
+    var BookModelView =ko.validatedObservable( {
+        SelectedAuthors : ko.observableArray([]),
+        Title : ko.observable().extend({ required: true }),
+        ReleaseDate : ko.observable(),
+        Rating : ko.observable(123),
+        PageCount : ko.observable(123123)
+    });
 
     me.onSaveClick = function() {
-        debugger;
-        var data = ko.mapping.toJS(me.BookModelView);
+        var data = ko.mapping.toJS(BookModelView);
+        
 
-        $.post(me.saveBookUrl, data, function() {
-            console.log('onSaveClick');
-        });
+        if (BookModelView.isValid()) {
+            $.post(me.saveBookUrl,
+                            data,
+                            function() {
+                                console.log('onSaveClick');
+                            });
+        } else {
+            BookModelView.errors.showAllMessages();
+        }
+
+
     };
 
 
-    me.Init = function(releaseDateControlId, authorControlId) {
+    me.Init = function (releaseDateControlId, authorControlId) {
 
-        $(releaseDateControlId).datetimepicker();
         $(authorControlId).selectpicker();
 
-        ko.applyBindings(new me.BookModelView());
+        ko.validation.init({
+            insertMessages: false,
+            decorateInputElement: true,
+            errorElementClass: 'errorStyle'
+        }, true);
+
+        ko.applyBindings(BookModelView);
     };
 }).apply(Book);
