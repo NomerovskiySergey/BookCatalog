@@ -1,56 +1,68 @@
 ﻿@using System.Web.Optimization
 @model IEnumerable<BookCatalog.ViewModel.MultiselectAuthorVM>
 
-@Styles.Render("~/bootstrap-select/css", "~/bootstrap-datetimepicker/css")
-@Scripts.Render("~/bootstrap-select/js", "~/bootstrap-datetimepicker/js", "~/book-view/js")
+@Scripts.Render("~/book-view/js")
 
-<h3>Add book</h3>
-<div class="row">
-    <div class="col-xs-12 col-sm-6, col-md-6 col-lg-3">
-        <form>
-            <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" data-bind="value: Title">
-            </div>
-            <div class="form-group">
-                <label for="releaseDate">Release date:</label>
-            </div>
-            <div class="form-group">
-                <label for="author">Authors:</label>
-                <select class="selectpicker form-control"
-                        id="author" 
-                        multiple data-live-search="true" 
-                        data-bind="selectedOptions: SelectedAuthors">
-                    @foreach (var item in Model)
-                    {
-                        <option value="@item.Id">@item.FullName</option>
-                    }
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h3>Add book</h3></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6, col-md-6 col-lg-3">
+                <form>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" data-bind="value: Title" placeholder="This field is required">
+                    </div>
+                    <div class="form-group">
+                        <label for="releaseDate">Release date:</label>
+                        <div class="input-group date" id="datepickerContainer">
+                            <input type="text" class="form-control" data-bind="value:ReleaseDate"  placeholder="This field is required"><span class="input-group-addon" ><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Authors:</label>
+                        <select class="selectpicker form-control"
+                                id="author" 
+                                multiple data-live-search="true" 
+                                data-bind="selectedOptions: SelectedAuthors">
+                            @foreach (var item in Model)
+                            {
+                                <option value="@item.Id">@item.FullName</option>
+                            }
                     
-                </select>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select class="selectpicker form-control"
+                                id="rating"
+                                data-bind="value: Rating, foreach: { data: RatingArr, as: 'item'}">
+                                <option data-bind="value:item, text:item"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pageCount">Page count:</label>
+                        <input id="pageCount" type="text" class="form-control" data-bind="value: PageCount" placeholder="This field is required"/>
+                    </div>
+                    <div class="form-group float-right">
+                        <button type="button" class="btn" onclick="Book.onSaveClick()">Save</button>
+                        <button type="button" class="btn">Cancel</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="rating">Rating:</label>
-                <input id="rating" type="text" class="form-control" data-bind="value: Rating" />
-            </div>
-            <div class="form-group">
-                <label for="pageCount">Page count:</label>
-                <input id="pageCount" type="text" class="form-control" data-bind="value: PageCount"/>
-            </div>
-            <div class="form-group float-right">
-                <button type="button" class="btn" onclick="Book.onSaveClick()">Save</button>
-                <button type="button" class="btn">Cancel</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+
+
+
 
 <script type="text/javascript">
     // var authorModel = @Html.Raw(Json.Encode(Model));
 
     Book.saveBookUrl = '@Url.Action("CreateBook", "Book")';
-
-    Book.Init("#datetimepicker", "#author");
-
+    Book.Init("#datepickerContainer", "#author");
 
 </script>
 

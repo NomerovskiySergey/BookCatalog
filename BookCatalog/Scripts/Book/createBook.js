@@ -1,46 +1,49 @@
 ﻿var Book = Book || {};
 
-(function() {
+(function () {
     var me = this;
 
     me.saveBookUrl = '';
 
-    var BookModelView =ko.validatedObservable( {
-        SelectedAuthors : ko.observableArray([]),
-        Title : ko.observable().extend({ required: true }),
-        ReleaseDate : ko.observable(),
-        Rating : ko.observable(123),
-        PageCount : ko.observable(123123)
+    var BookModelView = ko.validatedObservable({
+        Title: ko.observable().extend({ required: true }),
+        ReleaseDate: ko.observable().extend({ required: true }),
+        SelectedAuthors: ko.observableArray([]).extend({ required: true }),
+        RatingArr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        Rating: ko.observable().extend({ required: true }),
+        PageCount: ko.observable().extend({ number: true, required: true })
     });
 
-    me.onSaveClick = function() {
-        var data = ko.mapping.toJS(BookModelView);
-        
-
+    me.onSaveClick = function () {
         if (BookModelView.isValid()) {
-            $.post(me.saveBookUrl,
-                            data,
-                            function() {
-                                console.log('onSaveClick');
-                            });
+            $.post(me.saveBookUrl, ko.mapping.toJS(BookModelView),
+               function () {
+                   console.log('onSaveClick');
+               }, function () {
+                    BookModelView.errors.showAllMessages();a
+               });
         } else {
             BookModelView.errors.showAllMessages();
         }
-
-
     };
 
+    me.onEditClick = function () { };
+
+    function knockoutConfiguration() {
+        ko.validation.init({
+            decorateInputElement: true,
+            errorMessageClass: 'errorMessageStyle'
+        }, true);
+        ko.mapping.defaultOptions().ignore = ["RatingArr"];
+        ko.applyBindings(BookModelView);
+    };
 
     me.Init = function (releaseDateControlId, authorControlId) {
 
         $(authorControlId).selectpicker();
+        $(releaseDateControlId).datepicker();
 
-        ko.validation.init({
-            insertMessages: false,
-            decorateInputElement: true,
-            errorElementClass: 'errorStyle'
-        }, true);
-
-        ko.applyBindings(BookModelView);
+        knockoutConfiguration();
     };
 }).apply(Book);
+
