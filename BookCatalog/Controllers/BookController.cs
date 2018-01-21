@@ -19,10 +19,13 @@ namespace BookCatalog.Controllers
             return View(authors);
         }
 
-        [HttpGet]
-        public void CreateBook()
+        [HttpPost]
+        public void CreateBook(CreateBookVM newBook)
         {
-            
+            using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
+            {
+                bookDm.CreateBook(newBook);
+            }
         }
     }
 }

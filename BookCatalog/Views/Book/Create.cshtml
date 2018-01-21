@@ -25,7 +25,7 @@
                         <select class="selectpicker form-control"
                                 id="author" 
                                 multiple data-live-search="true" 
-                                data-bind="selectedOptions: SelectedAuthors">
+                                data-bind="selectedOptions: SelectedAuthorsIds">
                             @foreach (var item in Model)
                             {
                                 <option value="@item.Id">@item.FullName</option>
@@ -62,6 +62,8 @@
     // var authorModel = @Html.Raw(Json.Encode(Model));
 
     Book.saveBookUrl = '@Url.Action("CreateBook", "Book")';
+    Book.goToMainPage = '@Url.Action("Index", "Home")';
+
     Book.Init("#datepickerContainer", "#author");
 
 </script>

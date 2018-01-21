@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using BookCatalog.DAL.Entities;
 using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Data.Repository;
 using Dapper;
+using Dapper.Bulk;
 using Dapper.Contrib.Extensions;
+using Unity.Interception.Utilities;
 
 namespace BookCatalog.DAL.Repositories
 {
@@ -31,7 +34,7 @@ namespace BookCatalog.DAL.Repositories
                                     INNER JOIN[tbl_Book] AS B ON ABR.[BookId] = B.[Id]
                                     INNER JOIN[tbl_Author] AS A ON A.[Id] = ABR.[AuthorId]";
 
-                var bookLookup = new Dictionary<int,BookEM>();
+                var bookLookup = new Dictionary<int, BookEM>();
 
                 connection.Query<BookEM, AuthorEM, BookEM>(query, (b, a) =>
                 {
@@ -53,5 +56,42 @@ namespace BookCatalog.DAL.Repositories
             }
         }
 
+        public void CreateBook(BookEM newBook, IEnumerable<int> authorsIds)
+        {
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var bookId = InsertBook(newBook, connection, transaction);
+                    InsertAuthorBookRelation(bookId, authorsIds, connection, transaction);
+
+                    transaction.Commit();
+                }
+            }
+            
+        }
+
+        private long InsertBook(BookEM entity, SqlConnection connection, SqlTransaction transaction)
+        {
+            var newBookId = connection.Insert(entity, transaction);
+            return newBookId;
+        }
+
+        private void InsertAuthorBookRelation(long bookId, IEnumerable<int> authorsIds, SqlConnection connection, SqlTransaction transaction)
+        {
+            List<BookAuthorRelationEM> relations = new List<BookAuthorRelationEM>();
+
+            authorsIds.ForEach(f =>
+            {
+                relations.Add(new BookAuthorRelationEM()
+                {
+                    AuthorId = f,
+                    BookId = Convert.ToInt32(bookId)
+                });
+            });
+
+            connection.BulkInsert<BookAuthorRelationEM>(relations, transaction);
+        }
     }
 }

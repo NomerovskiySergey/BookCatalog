@@ -8,5 +8,6 @@ namespace BookCatalog.Infrastructure.Business
     {
         BookVM GetBook(int id);
         IEnumerable<BookVM> GetBooks();
+        void CreateBook(CreateBookVM newBook);
     }
 }

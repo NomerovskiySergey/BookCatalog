@@ -25,5 +25,15 @@ namespace BookCatalog.Business.Book
                 return Context.Mapper.MapTo<IEnumerable<BookVM>, IEnumerable<BookEM>>(repo.GetAll());
             }
         }
+
+        public void CreateBook(CreateBookVM newBook)
+        {
+            using (var repo = Context.Factory.GetService<IBookRepository>(Context.RootContext))
+            {
+                var newBookEm = Context.Mapper.MapTo<BookEM, CreateBookVM>(newBook);
+
+                repo.CreateBook(newBookEm, newBook.SelectedAuthorsIds);
+            }
+        }
     }
 }

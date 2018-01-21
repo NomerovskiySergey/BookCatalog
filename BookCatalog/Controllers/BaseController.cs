@@ -15,5 +15,13 @@ namespace BookCatalog.Controllers
         #endregion
 
         protected IWebContext WebContext { get; }
+
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            filterContext.ExceptionHandled = true;
+
+            //TODO: подключить логгер
+        }
     }
 }

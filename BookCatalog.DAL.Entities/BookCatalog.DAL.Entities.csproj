@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorEM.cs" />
+    <Compile Include="BookAuthorRelationEM.cs" />
     <Compile Include="BookEM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
