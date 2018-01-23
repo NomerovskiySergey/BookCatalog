@@ -9,5 +9,6 @@ namespace BookCatalog.Infrastructure.Business
         AuthorVM GetAuthor(int id);
         IEnumerable<AuthorVM> GetAuthors();
         IEnumerable<MultiselectAuthorVM> GetMultiselectAuthors();
+        void CreateAuthor(AuthorVM author);
     }
 }

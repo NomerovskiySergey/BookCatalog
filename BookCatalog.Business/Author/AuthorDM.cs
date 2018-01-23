@@ -12,6 +12,7 @@ namespace BookCatalog.Business.Author
     {
         #region Constructors
         public AuthorDM(IRootContext context) : base(context) { }
+
         #endregion
 
         public AuthorVM GetAuthor(int id)
@@ -32,6 +33,14 @@ namespace BookCatalog.Business.Author
             using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
             {
                 return Context.Mapper.MapTo<IEnumerable<MultiselectAuthorVM>, IEnumerable<AuthorEM>>(repo.GetAll());
+            }
+        }
+
+        public void CreateAuthor(AuthorVM author)
+        {
+            using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
+            {
+               repo.Insert(Context.Mapper.MapTo<AuthorEM, AuthorVM>(author));
             }
         }
     }

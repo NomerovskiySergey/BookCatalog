@@ -22,6 +22,8 @@ namespace BookCatalog.Controllers
             filterContext.ExceptionHandled = true;
 
             //TODO: подключить логгер
+           // filterContext.con.Response = new HttpResponseMessage(HttpStatusCode.NotImplemented);
+
         }
     }
 }

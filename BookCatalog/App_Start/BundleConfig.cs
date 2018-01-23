@@ -25,7 +25,8 @@ namespace BookCatalog.App_Start
                 .Include("~/Content/bootstrap-select.min.css")
                 .Include("~/Content/bootstrap-datetimepicker.min.css"));
 
-            bundles.Add(new ScriptBundle("~/book-view/js").Include("~/Scripts/Book/createBook.js"));
+            bundles.Add(new ScriptBundle("~/book-view/js").Include("~/Scripts/Book/book.js"));
+            bundles.Add(new ScriptBundle("~/author-view/js").Include("~/Scripts/Author/author.js"));
         }
     }
 }

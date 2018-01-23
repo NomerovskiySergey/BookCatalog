@@ -194,7 +194,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Book\createBook.js" />
+    <Content Include="Scripts\Author\author.js" />
+    <Content Include="Scripts\Book\book.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -558,7 +559,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Book\Create.cshtml" />
-    <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\Author\Create.cshtml" />
     <Content Include="Scripts\knockout.validation.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -569,7 +570,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\Author\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookCatalog.Business\BookCatalog.Business.csproj">
