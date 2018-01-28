@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BookCatalog.DAL.Entities;
 using BookCatalog.Infrastructure.Business;
 using BookCatalog.Infrastructure.Context;
@@ -17,7 +16,10 @@ namespace BookCatalog.Business.Author
 
         public AuthorVM GetAuthor(int id)
         {
-            throw new NotImplementedException();
+            using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
+            {
+               return Context.Mapper.MapTo<AuthorVM, AuthorEM>(repo.Get(id));
+            }
         }
 
         public IEnumerable<AuthorVM> GetAuthors()
@@ -41,6 +43,14 @@ namespace BookCatalog.Business.Author
             using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
             {
                repo.Insert(Context.Mapper.MapTo<AuthorEM, AuthorVM>(author));
+            }
+        }
+
+        public void UpdateAuthor(AuthorVM author)
+        {
+            using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
+            {
+                repo.Update(Context.Mapper.MapTo<AuthorEM, AuthorVM>(author));
             }
         }
     }

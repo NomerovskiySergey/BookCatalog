@@ -27,6 +27,7 @@ namespace BookCatalog.App_Start
 
             bundles.Add(new ScriptBundle("~/book-view/js").Include("~/Scripts/Book/book.js"));
             bundles.Add(new ScriptBundle("~/author-view/js").Include("~/Scripts/Author/author.js"));
+            bundles.Add(new ScriptBundle("~/main-page/js").Include("~/Scripts/MainPage/main-page.js"));
         }
     }
 }

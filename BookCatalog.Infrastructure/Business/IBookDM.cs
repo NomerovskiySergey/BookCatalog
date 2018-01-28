@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using BookCatalog.ViewModel;
+using BookCatalog.ViewModel.DataGridParameters;
 
 namespace BookCatalog.Infrastructure.Business
 {
     public interface IBookDM : IDisposable
     {
         BookVM GetBook(int id);
-        IEnumerable<BookVM> GetBooks();
+        DataGridOutputParamsVM GetBooks(DataGridInputParamsVM options);
         void CreateBook(CreateBookVM newBook);
     }
 }

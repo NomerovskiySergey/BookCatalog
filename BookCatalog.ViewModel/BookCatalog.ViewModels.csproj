@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +44,10 @@
     <Compile Include="AuthorVM.cs" />
     <Compile Include="BookVM.cs" />
     <Compile Include="CreateBookVM.cs" />
+    <Compile Include="DataGridParameters\Column.cs" />
+    <Compile Include="DataGridParameters\DataGridInputParamsVM.cs" />
+    <Compile Include="DataGridParameters\DataGridOutputParamsVM.cs" />
+    <Compile Include="DataGridParameters\Order.cs" />
     <Compile Include="MultiselectAuthorVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

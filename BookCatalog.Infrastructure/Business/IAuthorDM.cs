@@ -10,5 +10,6 @@ namespace BookCatalog.Infrastructure.Business
         IEnumerable<AuthorVM> GetAuthors();
         IEnumerable<MultiselectAuthorVM> GetMultiselectAuthors();
         void CreateAuthor(AuthorVM author);
+        void UpdateAuthor(AuthorVM author);
     }
 }

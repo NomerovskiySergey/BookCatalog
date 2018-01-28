@@ -9,6 +9,8 @@ using Dapper;
 using Dapper.Bulk;
 using Dapper.Contrib.Extensions;
 using Unity.Interception.Utilities;
+using static Dapper.SqlMapper;
+using System.Data;
 
 namespace BookCatalog.DAL.Repositories
 {
@@ -18,44 +20,29 @@ namespace BookCatalog.DAL.Repositories
         public BookRepository(IRootContext context) : base(context) { }
         #endregion
 
-        public override IEnumerable<BookEM> GetAll()
+        public IEnumerable<BookEM> GetBooks(string searchExpression, int start, int length, out int totalRow)
         {
+            var spName = "USPGetBooks";
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
             {
-                var query = @"SELECT B.[Id],
-                                    B.[Title],
-                                    B.[ReleaseDate],
-                                    B.[Rating],
-                                    B.[PageCount],
-                                    A.[Id],
-                                    A.[FirstName],
-                                    A.[LastName]
-                                    FROM[tbl_Authors_Books_Relation] AS ABR
-                                    INNER JOIN[tbl_Book] AS B ON ABR.[BookId] = B.[Id]
-                                    INNER JOIN[tbl_Author] AS A ON A.[Id] = ABR.[AuthorId]";
+                totalRow = 0;
+                DynamicParameters parameter = new DynamicParameters();
 
-                var bookLookup = new Dictionary<int, BookEM>();
+                parameter.Add("@SearchExpression", searchExpression, DbType.String, ParameterDirection.Input);
+                parameter.Add("@Start", start, DbType.String, ParameterDirection.Input);
+                parameter.Add("@Length", length, dbType: DbType.Int32, direction: ParameterDirection.Input);
+                parameter.Add("@TotalFilter", totalRow, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                connection.Query<BookEM, AuthorEM, BookEM>(query, (b, a) =>
-                {
-                    BookEM book;
+                var result = connection.Query<BookEM>(spName, parameter, commandType: CommandType.StoredProcedure);
+                totalRow = parameter.Get<int>("TotalFilter");
 
-                    if (!bookLookup.TryGetValue(b.Id, out book))
-                        bookLookup.Add(b.Id, book = b);
 
-                    if (book.Author == null)
-                        book.Author = new List<AuthorEM>();
-
-                    book.Author.Add(a);
-
-                    return book;
-                });
-
-                return bookLookup.Values.ToList();
-
+                return result;
             }
         }
 
+
+        #region Book creation
         public void CreateBook(BookEM newBook, IEnumerable<int> authorsIds)
         {
             using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
@@ -93,5 +80,6 @@ namespace BookCatalog.DAL.Repositories
 
             connection.BulkInsert<BookAuthorRelationEM>(relations, transaction);
         }
+        #endregion
     }
 }

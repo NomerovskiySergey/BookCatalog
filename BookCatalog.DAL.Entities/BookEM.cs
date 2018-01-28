@@ -13,10 +13,6 @@ namespace BookCatalog.DAL.Entities
         public DateTime ReleaseDate { get; set; }
         public int Rating { get; set; }
         public int PageCount { get; set; }
-
-        #region Navigation property
-        [Computed]
-        public List<AuthorEM> Author { get; set; }
-        #endregion
+        public string Author { get; set; }
     }
 }
