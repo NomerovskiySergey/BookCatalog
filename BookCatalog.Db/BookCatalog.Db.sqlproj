@@ -64,6 +64,7 @@
     <Folder Include="DataSeeding" />
     <Folder Include="DataSeeding\Script.PreDeployment" />
     <Folder Include="DataSeeding\Script.PostDeployment" />
+    <Folder Include="dbo\Programmability" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\tbl_Author.sql" />
@@ -72,6 +73,7 @@
     <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Authors.sql" />
     <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Authors_Books_Relation.sql" />
     <None Include="DataSeeding\Script.PostDeployment\Insert_tbl_Books.sql" />
+    <Build Include="dbo\Programmability\USPGetBooks.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="DataSeeding\Script.PreDeployment.sql" />
