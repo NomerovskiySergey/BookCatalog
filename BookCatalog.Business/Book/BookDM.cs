@@ -46,5 +46,13 @@ namespace BookCatalog.Business.Book
                 repo.CreateBook(newBookEm, newBook.SelectedAuthorsIds);
             }
         }
+
+        public void DeleteBook(int bookId)
+        {
+            using (var repo = Context.Factory.GetService<IBookRepository>(Context.RootContext))
+            {
+                repo.DeleteBook(bookId);
+            }
+        }
     }
 }

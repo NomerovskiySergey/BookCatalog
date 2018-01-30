@@ -27,10 +27,11 @@
 
     me.onEditClick = function () {
         if (AuthorModelView.isValid()) {
-            $.post(me.editAuthorUrl, ko.mapping.toJS(AuthorModelView),
-                function () {
+            $.post(me.editAuthorUrl,
+                ko.mapping.toJS(AuthorModelView),
+                function() {
                     location.href = me.goToMainPage;
-                })
+                });
         } else {
             AuthorModelView.errors.showAllMessages();
         }

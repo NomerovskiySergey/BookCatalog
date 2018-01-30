@@ -7,5 +7,6 @@ namespace BookCatalog.Infrastructure.Data.Repository
     {
         void CreateBook(BookEM newBook, IEnumerable<int> authorsIds);
         IEnumerable<BookEM> GetBooks(string searchExpression, int start, int length, out int totalRow);
+        void DeleteBook(int bookId);
     }
 }

@@ -9,5 +9,6 @@ namespace BookCatalog.Infrastructure.Business
         BookVM GetBook(int id);
         DataGridOutputParamsVM GetBooks(DataGridInputParamsVM options);
         void CreateBook(CreateBookVM newBook);
+        void DeleteBook(int bookId);
     }
 }

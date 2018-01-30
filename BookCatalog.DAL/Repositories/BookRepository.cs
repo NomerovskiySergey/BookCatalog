@@ -41,6 +41,21 @@ namespace BookCatalog.DAL.Repositories
             }
         }
 
+        public void DeleteBook(int bookId)
+        {
+            var query = @"BEGIN TRANSACTION;
+                          DELETE FROM tbl_Authors_Books_Relation WHERE BookId = @BookId
+                          DELETE FROM tbl_Book  WHERE Id = @BookId
+                         COMMIT;";
+            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            {
+                DynamicParameters parameter = new DynamicParameters();
+                parameter.Add("@BookId", bookId, DbType.String, ParameterDirection.Input);
+
+                connection.Execute(query, parameter);
+            }
+        }
+
 
         #region Book creation
         public void CreateBook(BookEM newBook, IEnumerable<int> authorsIds)

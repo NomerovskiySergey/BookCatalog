@@ -1,7 +1,9 @@
 ﻿using System.Configuration;
+using System.Net;
 using System.Web.Mvc;
 using BookCatalog.Infrastructure.Context;
 using BookCatalog.Initializer;
+using System.Net.Http;
 
 namespace BookCatalog.Controllers
 {
@@ -19,11 +21,18 @@ namespace BookCatalog.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            filterContext.ExceptionHandled = true;
-
-            //TODO: подключить логгер
-           // filterContext.con.Response = new HttpResponseMessage(HttpStatusCode.NotImplemented);
-
+            if (filterContext.HttpContext.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                filterContext.Result = new JsonResult
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new {error = true, message = filterContext.Exception.Message}
+                };
+            }
+            else
+            {
+                base.OnException(filterContext);
+            } 
         }
     }
 }

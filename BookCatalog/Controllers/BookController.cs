@@ -27,5 +27,15 @@ namespace BookCatalog.Controllers
                 bookDm.CreateBook(newBook);
             }
         }
+
+        [HttpPost]
+        public RedirectResult DeleteBook(int bookId)
+        {
+            using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
+            {
+                bookDm.DeleteBook(bookId);
+            }
+            return Redirect("/Home/Index");
+        }
     }
 }
