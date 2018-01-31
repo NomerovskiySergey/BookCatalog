@@ -48,6 +48,7 @@
     <Compile Include="DataGridParameters\DataGridInputParamsVM.cs" />
     <Compile Include="DataGridParameters\DataGridOutputParamsVM.cs" />
     <Compile Include="DataGridParameters\Order.cs" />
+    <Compile Include="DataGridParameters\Search.cs" />
     <Compile Include="MultiselectAuthorVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

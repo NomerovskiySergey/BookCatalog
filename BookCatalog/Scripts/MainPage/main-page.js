@@ -31,9 +31,9 @@
         return outputHtml;
     };
 
-    me.onDelete = function(e) {
+    me.onDelete = function (e) {
         $.post(me.deleteBook, { bookId: $(e).data('id') },
-            function() {
+            function () {
                 location.reload();
             });
     }
@@ -48,12 +48,12 @@
                 type: 'POST',
             },
             columns: [
-                { "data": "Id", "title": " "},
+                { "data": "Id", "title": " ", "searchable": "false" },
                 { "data": "Title" },
-                { "data": "ReleaseDate" },
-                { "data": "Rating" },
-                { "data": "PageCount" },
-                { "data": "Author" },
+                { "data": "ReleaseDate", "searchable": "false" },
+                { "data": "Rating", "searchable": "false" },
+                { "data": "PageCount", "searchable": "false" },
+                { "data": "Author", "searchable": "false" },
             ],
             columnDefs: [
                 {

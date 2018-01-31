@@ -25,7 +25,7 @@ namespace BookCatalog.Business.Book
             {
                 int totalRows;
 
-                var books = repo.GetBooks(options.Search, options.Start, options.Length, out totalRows);
+                var books = repo.GetBooks(options.Search.Value, options.Start, options.Length, out totalRows);
 
                 return new DataGridOutputParamsVM()
                 {
