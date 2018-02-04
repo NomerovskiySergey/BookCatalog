@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BookCatalog.ViewModel.MultiselectAuthorVM>
+
+@Scripts.Render("~/book-view/js")
+
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h3>Add book</h3></div>
+    <div class="panel-body">
+        @{ Html.RenderPartial("_BookForm", Model); };
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    Book.saveBookUrl = '@Url.Action("CreateBook", "Book")';
+    Book.goToMainPage = '@Url.Action("Index", "Home")';
+
+    Book.Init("#datepickerContainer", "#author");
+
+</script>
+

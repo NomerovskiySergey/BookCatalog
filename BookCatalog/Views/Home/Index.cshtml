@@ -1,7 +1,13 @@
-﻿@using System.Web.Optimization
-@model IEnumerable<BookCatalog.ViewModel.BookVM>
+﻿@model IEnumerable<BookCatalog.ViewModel.MultiselectAuthorVM>
 
 @Scripts.Render("~/main-page/js")
+@Scripts.Render("~/book-view/js")
+
+<div class="row">
+    <div class="col-md-12 collapse" id="edit_book_zone">
+        @{ Html.RenderPartial("_BookForm", Model); }
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -27,7 +33,12 @@
 <script type="text/javascript">
 
     Catalog.loadDataUrl = '@Url.Action("LoadGridData", "Home")';
-    Catalog.deleteBook = '@Url.Action("DeleteBook", "Book")';
-
+    Catalog.deleteBookUrl = '@Url.Action("DeleteBook", "Book")';
     Catalog.Init('#bookTbl');
+
+    Book.saveBookUrl = '@Url.Action("UpdateBook", "Book")';
+    Book.getBookUrl = '@Url.Action("GetBook", "Book")';
+    Book.goToMainPage = '@Url.Action("Index", "Home")';
+
+    Book.Init("#datepickerContainer", "#author");
 </script>

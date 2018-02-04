@@ -53,6 +53,8 @@
     <Compile Include="AuthorEM.cs" />
     <Compile Include="BookAuthorRelationEM.cs" />
     <Compile Include="BookEM.cs" />
+    <Compile Include="DisplayBookEM.cs" />
+    <Compile Include="EditBookEM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

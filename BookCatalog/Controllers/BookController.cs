@@ -2,13 +2,14 @@
 using System.Web.Mvc;
 using BookCatalog.Infrastructure.Business;
 using BookCatalog.ViewModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookCatalog.Controllers
 {
     public class BookController : BaseController
     {
         // GET: Book
-        public ActionResult Create()
+        public ActionResult Index()
         {
             IEnumerable<MultiselectAuthorVM> authors = new List<MultiselectAuthorVM>();
 
@@ -22,9 +23,16 @@ namespace BookCatalog.Controllers
         [HttpPost]
         public void CreateBook(CreateBookVM newBook)
         {
-            using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
+            if (ModelState.IsValid)
             {
-                bookDm.CreateBook(newBook);
+                using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
+                {
+                    bookDm.CreateBook(newBook);
+                }
+            }
+            else
+            {
+                throw new ValidationException();
             }
         }
 
@@ -36,6 +44,34 @@ namespace BookCatalog.Controllers
                 bookDm.DeleteBook(bookId);
             }
             return Redirect("/Home/Index");
+        }
+
+        [HttpGet]
+        public JsonResult GetBook(int bookId)
+        {
+            using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
+            {
+                var vm = bookDm.GetBook(bookId);
+                return Json(vm, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult UpdateBook(BookVM editBook)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var bookDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
+                {
+                    bookDm.EditBook(editBook);
+                }
+            }
+            else
+            {
+                throw new ValidationException();
+            }
+            return Json(string.Empty);
+
         }
     }
 }

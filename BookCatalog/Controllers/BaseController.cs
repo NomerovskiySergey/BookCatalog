@@ -1,9 +1,7 @@
 ﻿using System.Configuration;
-using System.Net;
 using System.Web.Mvc;
 using BookCatalog.Infrastructure.Context;
 using BookCatalog.Initializer;
-using System.Net.Http;
 
 namespace BookCatalog.Controllers
 {

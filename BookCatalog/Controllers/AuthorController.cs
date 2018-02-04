@@ -1,8 +1,7 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BookCatalog.Infrastructure.Business;
 using BookCatalog.ViewModel;
-using WebGrease.Css.Ast.Selectors;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookCatalog.Controllers
 {
@@ -15,7 +14,7 @@ namespace BookCatalog.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateAuthor(AuthorVM newAuthor)
+        public void CreateAuthor(AuthorVM newAuthor)
         {
             if (ModelState.IsValid)
             {
@@ -23,11 +22,11 @@ namespace BookCatalog.Controllers
                 {
                     domain.CreateAuthor(newAuthor);
                 }
-
-                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
-
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            else
+            {
+                throw new ValidationException();
+            }
         }
 
         public ActionResult Edit(int? id)
@@ -42,7 +41,7 @@ namespace BookCatalog.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(AuthorVM author)
+        public JsonResult Edit(AuthorVM author)
         {
             if (ModelState.IsValid)
             {
@@ -50,11 +49,13 @@ namespace BookCatalog.Controllers
                 {
                     domain.UpdateAuthor(author);
                 }
-
-                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            else
+            {
+                throw new ValidationException();
             }
 
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return Json(string.Empty);
         }
     }
 }

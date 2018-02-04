@@ -16,7 +16,10 @@ namespace BookCatalog.Business.Book
 
         public BookVM GetBook(int id)
         {
-            throw new System.NotImplementedException();
+            using (var repo = Context.Factory.GetService<IBookRepository>(Context.RootContext))
+            {
+                return Context.Mapper.MapTo<BookVM, BookEM>(repo.GetBook(id));
+            }
         }
 
         public DataGridOutputParamsVM GetBooks(DataGridInputParamsVM options)
@@ -29,7 +32,7 @@ namespace BookCatalog.Business.Book
 
                 return new DataGridOutputParamsVM()
                 {
-                    data = Context.Mapper.MapTo<IEnumerable<BookVM>, IEnumerable<BookEM>>(books),
+                    data = Context.Mapper.MapTo<IEnumerable<BookVM>, IEnumerable<DisplayBookEM>>(books),
                     draw = options.Draw,
                     recordsTotal = totalRows,
                     recordsFiltered = totalRows
@@ -43,7 +46,7 @@ namespace BookCatalog.Business.Book
             {
                 var newBookEm = Context.Mapper.MapTo<BookEM, CreateBookVM>(newBook);
 
-                repo.CreateBook(newBookEm, newBook.SelectedAuthorsIds);
+                repo.CreateBook(newBookEm, newBook.AuthorsIds);
             }
         }
 
@@ -52,6 +55,16 @@ namespace BookCatalog.Business.Book
             using (var repo = Context.Factory.GetService<IBookRepository>(Context.RootContext))
             {
                 repo.DeleteBook(bookId);
+            }
+        }
+
+        public void EditBook(BookVM book)
+        {
+            using (var repo = Context.Factory.GetService<IBookRepository>(Context.RootContext))
+            {
+                var newBookEm = Context.Mapper.MapTo<DisplayBookEM, BookVM>(book);
+
+                repo.EditBook(newBookEm, book.AuthorsIds);
             }
         }
     }

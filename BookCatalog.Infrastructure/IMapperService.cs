@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using BookCatalog.DAL.Entities;
-using BookCatalog.ViewModel;
 
 namespace BookCatalog.Infrastructure
 {

@@ -12,9 +12,18 @@ namespace BookCatalog.Initializer.MapperInitializer
             AutoMapper.Mapper.Initialize((map) =>
             {
                 map.CreateMap<string, DateTime>()
-                    .ConvertUsing(s => DateTime.ParseExact(s,"mm/dd/yyyy", CultureInfo.InvariantCulture));
+                    .ConvertUsing(s => DateTime.ParseExact(s, "dd.mm.yyyy", CultureInfo.InvariantCulture));
+
+                map.CreateMap<DateTime, string>()
+                    .ConvertUsing(s => s.ToString("dd.mm.yyyy"));
 
                 map.CreateMap<BookEM, BookVM>()
+                    .ReverseMap();
+
+                map.CreateMap<DisplayBookEM, BookVM>()
+                    .ReverseMap();
+
+                map.CreateMap<EditBookEM, BookVM>()
                     .ReverseMap();
 
                 map.CreateMap<AuthorEM, AuthorVM>()
@@ -23,8 +32,7 @@ namespace BookCatalog.Initializer.MapperInitializer
                 map.CreateMap<AuthorEM, MultiselectAuthorVM>()
                     .ForMember(dest => dest.FullName, opts => opts.MapFrom(src => src.FirstName + " " + src.LastName));
 
-                map.CreateMap<CreateBookVM, BookEM>()
-                    .ForMember(dest => dest.Author, opts => opts.Ignore());
+                map.CreateMap<CreateBookVM, BookEM>();
             });
         }
     }

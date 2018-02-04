@@ -11,17 +11,22 @@ namespace BookCatalog.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<MultiselectAuthorVM> authors = new List<MultiselectAuthorVM>();
+
+            using (var authorDm = WebContext.Factory.GetService<IAuthorDM>(WebContext.RootContext))
+            {
+                authors = authorDm.GetMultiselectAuthors();
+            }
+            return View(authors);
         }
 
         [HttpPost]
         public JsonResult LoadGridData(DataGridInputParamsVM options)
         {
-            IEnumerable<BookVM> catalog;
-
             using (var catalogDm = WebContext.Factory.GetService<IBookDM>(WebContext.RootContext))
             {
-                return Json(catalogDm.GetBooks(options));
+                var result = Json(catalogDm.GetBooks(options));
+                return result;
             }
         }
     }

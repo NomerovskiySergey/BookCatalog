@@ -4,7 +4,7 @@
     var me = this;
 
     me.loadDataUrl = '';
-    me.deleteBook = '';
+    me.deleteBookUrl = '';
 
     function RenderAuthorRow(data) {
         var autrhorsLookupValueArr = data.split(';')
@@ -25,14 +25,14 @@
     function RenderButtonsRow(data) {
         var outputHtml = '';
 
-        //outputHtml += "<a href='' " + data + "' class='btn btn-info' role='button' >Edit</a> ";
+        outputHtml += "<div id='edit_btn' data-id='" + data + "' class='btn btn-info edit_btn' role='button' onclick='Book.onEditClick(this)'>Edit</div> ";
         outputHtml += "<div id='delete_btn' class='btn btn-info' role='button' data-id='" + data + "'' onclick='Catalog.onDelete(this)'>Delete</div>";
 
         return outputHtml;
     };
 
     me.onDelete = function (e) {
-        $.post(me.deleteBook, { bookId: $(e).data('id') },
+        $.post(me.deleteBookUrl, { bookId: $(e).data('id') },
             function () {
                 location.reload();
             });
@@ -45,7 +45,7 @@
             ordering: false,
             ajax: {
                 url: me.loadDataUrl,
-                type: 'POST',
+                type: 'POST'
             },
             columns: [
                 { "data": "Id", "title": " ", "searchable": "false" },
@@ -53,7 +53,7 @@
                 { "data": "ReleaseDate", "searchable": "false" },
                 { "data": "Rating", "searchable": "false" },
                 { "data": "PageCount", "searchable": "false" },
-                { "data": "Author", "searchable": "false" },
+                { "data": "Author", "searchable": "false" }
             ],
             columnDefs: [
                 {

@@ -1,5 +1,4 @@
-﻿using System;
-using BookCatalog.Infrastructure.Context;
+﻿using BookCatalog.Infrastructure.Context;
 using BookCatalog.Infrastructure.Injection;
 
 namespace BookCatalog.Initializer
