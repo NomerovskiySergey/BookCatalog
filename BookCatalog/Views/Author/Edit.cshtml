@@ -1,6 +1,4 @@
-﻿@using System.Web.Optimization
-
-@model BookCatalog.ViewModel.AuthorVM
+﻿@model BookCatalog.ViewModel.AuthorVM
 
 @Scripts.Render("~/author-view/js")
 <div class="panel panel-default">
@@ -16,7 +14,10 @@
                     <div class="form-group">
                         <label for="lastName">Last Name:</label>
                         <input type="text" class="form-control" id="lastName" data-bind="value: LastName" placeholder="This field is required">
-
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Book count:</label>
+                        <input type="text" class="form-control" id="bookCount" data-bind="value: BookCount" placeholder="Book count" disabled>
                     </div>
 
                     <div class="form-group float-right">

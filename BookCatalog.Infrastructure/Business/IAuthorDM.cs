@@ -6,7 +6,7 @@ namespace BookCatalog.Infrastructure.Business
 {
     public interface IAuthorDM : IDisposable
     {
-        AuthorVM GetAuthor(int id);
+        DisplayAuthorVM GetAuthor(int id);
         IEnumerable<AuthorVM> GetAuthors();
         IEnumerable<MultiselectAuthorVM> GetMultiselectAuthors();
         void CreateAuthor(AuthorVM author);

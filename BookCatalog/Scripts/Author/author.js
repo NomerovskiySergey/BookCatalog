@@ -9,7 +9,8 @@
     var AuthorModelView = ko.validatedObservable({
         Id: ko.observable(),
         FirstName: ko.observable().extend({ required: true }),
-        LastName: ko.observable().extend({ required: true })
+        LastName: ko.observable().extend({ required: true }),
+        BookCount: ko.observable()
     });
 
     me.onSaveClick = function () {

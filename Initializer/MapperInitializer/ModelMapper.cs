@@ -26,13 +26,15 @@ namespace BookCatalog.Initializer.MapperInitializer
                 map.CreateMap<EditBookEM, BookVM>()
                     .ReverseMap();
 
+                map.CreateMap<CreateBookVM, BookEM>();
+
                 map.CreateMap<AuthorEM, AuthorVM>()
                     .ReverseMap();
 
+                map.CreateMap<DisplayAuthorEM, DisplayAuthorVM>();
+
                 map.CreateMap<AuthorEM, MultiselectAuthorVM>()
                     .ForMember(dest => dest.FullName, opts => opts.MapFrom(src => src.FirstName + " " + src.LastName));
-
-                map.CreateMap<CreateBookVM, BookEM>();
             });
         }
     }

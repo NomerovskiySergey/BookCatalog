@@ -14,11 +14,11 @@ namespace BookCatalog.Business.Author
 
         #endregion
 
-        public AuthorVM GetAuthor(int id)
+        public DisplayAuthorVM GetAuthor(int id)
         {
             using (var repo = Context.Factory.GetService<IAuthorRepository>(Context.RootContext))
             {
-               return Context.Mapper.MapTo<AuthorVM, AuthorEM>(repo.Get(id));
+               return Context.Mapper.MapTo<DisplayAuthorVM, DisplayAuthorEM>(repo.Get(id));
             }
         }
 
