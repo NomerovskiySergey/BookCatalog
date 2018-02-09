@@ -9,7 +9,6 @@ using Dapper;
 using Dapper.Bulk;
 using Dapper.Contrib.Extensions;
 using Unity.Interception.Utilities;
-using static Dapper.SqlMapper;
 using System.Data;
 
 namespace BookCatalog.DAL.Repositories

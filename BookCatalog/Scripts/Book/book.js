@@ -20,10 +20,11 @@
         if (BookModelView.isValid()) {
             $.post(me.saveBookUrl, ko.mapping.toJS(BookModelView))
                 .done(function () {
+                    toastr.success('Book successfully added');
                     location.href = me.goToMainPage;
                 })
-                .fail(function () {
-                    alert("error");
+                .fail(function (e) {
+                    toastr.success('Book successfully created');
                 });
         } else {
             BookModelView.errors.showAllMessages();

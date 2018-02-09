@@ -16,14 +16,16 @@ namespace BookCatalog.App_Start
                 .Include("~/Scripts/knockout.validation.min.js")
                 .Include("~/Scripts/DataTables/datatables.min.js")
                 .Include("~/Scripts/bootstrap-select.js")
-                .Include("~/Scripts/bootstrap-datepicker.min.js"));
+                .Include("~/Scripts/bootstrap-datepicker.min.js")
+                .Include("~/Scripts/toastr.min.js"));
 
             bundles.Add(new ScriptBundle("~/global/css")
                 .Include("~/Content/Site.css")
                 .Include("~/Content/bootstrap.min.css")
                 .Include("~/Scripts/DataTables/datatables.min.css")
                 .Include("~/Content/bootstrap-select.min.css")
-                .Include("~/Content/bootstrap-datetimepicker.min.css"));
+                .Include("~/Content/bootstrap-datetimepicker.min.css")
+                .Include("~/Content/toastr.min.css"));
 
             bundles.Add(new ScriptBundle("~/book-view/js").Include("~/Scripts/Book/book.js"));
             bundles.Add(new ScriptBundle("~/author-view/js").Include("~/Scripts/Author/author.js"));

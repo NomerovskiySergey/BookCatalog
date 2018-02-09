@@ -17,6 +17,7 @@
         if (AuthorModelView.isValid()) {
             $.post(me.saveAuthorUrl, ko.mapping.toJS(AuthorModelView),
                 function () {
+                    toastr.success('Author successfully added');
                     location.href = me.goToMainPage;
                 }, function () {
 
