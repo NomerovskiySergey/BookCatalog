@@ -10,6 +10,12 @@ namespace BookCatalog
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "EditAuthorRoute",
+                url: "author/{controller}/{action}/{author}/{id}",
+                defaults: new { controller = "Author", action = "Edit", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

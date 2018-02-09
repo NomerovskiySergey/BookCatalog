@@ -15,7 +15,7 @@
             var authorArr = autrhorsLookupValueArr[i].split('#');
 
             if (authorArr[0].length != 0) {
-                outputHtml += '<a href="/Author/Edit/' + authorArr[0] + '">' + authorArr[1] + '</a>; '
+                outputHtml += '<a href="author/Author/Edit/' + authorArr[1] + '/' + authorArr[0] + '">' + authorArr[1] + '</a>; ';
             }
         }
 
