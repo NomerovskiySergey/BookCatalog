@@ -104,7 +104,10 @@ namespace BookCatalog.DAL.Repositories
 		                         B.ReleaseDate AS ReleaseDate,
 		                         B.Rating AS Rating,
 		                         B.PageCount AS PageCount,
-		                         A.Id AS AuthorId
+		                         A.Id AS AuthorId,
+                                 '1' AS TField1,
+                                 '2' AS TField2,
+                                 '3' AS TField3
                           FROM tbl_Authors_Books_Relation AS ABR
                           JOIN tbl_Author AS A ON ABR.AuthorId = A.Id
                           JOIN tbl_Book AS B ON ABR.BookId = B.Id
@@ -117,7 +120,7 @@ namespace BookCatalog.DAL.Repositories
 
                 var bookLookup = new Dictionary<int, EditBookEM>();
 
-                connection.Query<EditBookEM,int,EditBookEM>(
+                connection.Query<EditBookEM,dynamic,EditBookEM>(
                     query, 
                     map: (b, a) =>
                     {
@@ -127,7 +130,7 @@ namespace BookCatalog.DAL.Repositories
                             bookLookup.Add(b.Id, book = b);
 
                         if (book.AuthorsIds == null)
-                            book.AuthorsIds = new List<int>();
+                            book.AuthorsIds = new List<dynamic>();
 
                         book.AuthorsIds.Add(a);
 
@@ -138,6 +141,42 @@ namespace BookCatalog.DAL.Repositories
 
                 return bookLookup.Values.FirstOrDefault();
             }
+        }
+
+        public void Test()
+        {
+            //var query = @"SELECT * FROM tbl_Book
+            //              FROM tbl_Authors_Books_Relation AS ABR
+            //              JOIN tbl_Author AS A ON ABR.AuthorId = A.Id
+            //              JOIN tbl_Book AS B ON ABR.BookId = B.Id
+            //              WHERE B.Id = @bookId";
+
+            //using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            //{
+            //    DynamicParameters parameter = new DynamicParameters();
+            //    parameter.Add("@bookId", bookId, DbType.String, ParameterDirection.Input);
+
+            //    var bookLookup = new Dictionary<int, EditBookEM>();
+
+            //    connection.Query<EditBookEM, int, EditBookEM>(
+            //        query,
+            //        map: (b, a) =>
+            //        {
+            //            EditBookEM book;
+
+            //            if (!bookLookup.TryGetValue(b.Id, out book))
+            //                bookLookup.Add(b.Id, book = b);
+
+            //            if (book.AuthorsIds == null)
+            //                book.AuthorsIds = new List<int>();
+
+            //            book.AuthorsIds.Add(a);
+
+            //            return b;
+            //        },
+            //        splitOn: "AuthorId",
+            //        param: parameter);
+            //}
         }
 
         public void EditBook(BookEM book, IEnumerable<int> authorsIds)

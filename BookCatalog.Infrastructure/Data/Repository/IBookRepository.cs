@@ -10,5 +10,6 @@ namespace BookCatalog.Infrastructure.Data.Repository
         void DeleteBook(int bookId);
         EditBookEM GetBook(int bookId);
         void EditBook(BookEM book, IEnumerable<int> authorsIds);
+        void Test();
     }
 }
