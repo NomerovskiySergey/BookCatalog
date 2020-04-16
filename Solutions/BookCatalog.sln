@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Web", "..\BookCatalog.Onion\BookCatalog\BookCatalog.Web.csproj", "{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Business", "..\BookCatalog.Onion\BookCatalog.Business\BookCatalog.Business.csproj", "{DE207555-1559-49D9-B2AF-E9744CE9282C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.DAL", "..\BookCatalog.Onion\BookCatalog.DAL\BookCatalog.DAL.csproj", "{03644716-F045-43E9-A4A1-74ACE327A451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.DAL.Entities", "..\BookCatalog.Onion\BookCatalog.DAL.Entities\BookCatalog.DAL.Entities.csproj", "{1531C7CC-2371-48FD-8C06-424A692C2B1D}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BookCatalog.Db", "..\BookCatalog.Onion\BookCatalog.Db\BookCatalog.Db.sqlproj", "{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Infrastructure", "..\BookCatalog.Onion\BookCatalog.Infrastructure\BookCatalog.Infrastructure.csproj", "{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Tests", "..\BookCatalog.Onion\BookCatalog.Tests\BookCatalog.Tests.csproj", "{44B48D85-8F97-4A36-AE68-2B4C852AE4EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.ViewModels", "..\BookCatalog.Onion\BookCatalog.ViewModel\BookCatalog.ViewModels.csproj", "{1E83F57F-DC5C-408D-B311-5B11A5940823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Initializer", "..\BookCatalog.Onion\Initializer\BookCatalog.Initializer.csproj", "{9B955131-DB48-4707-8033-E56513FF4687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Web.MVC", "..\BookCatalog.Onion\BookCatalog.Web.MVC\BookCatalog.Web.MVC.csproj", "{CA7C6BA5-64CB-4867-9AD3-B63BF42B152E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03644716-F045-43E9-A4A1-74ACE327A451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03644716-F045-43E9-A4A1-74ACE327A451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03644716-F045-43E9-A4A1-74ACE327A451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03644716-F045-43E9-A4A1-74ACE327A451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1531C7CC-2371-48FD-8C06-424A692C2B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1531C7CC-2371-48FD-8C06-424A692C2B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1531C7CC-2371-48FD-8C06-424A692C2B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1531C7CC-2371-48FD-8C06-424A692C2B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1C6D0F-7AC4-4D94-BD29-C53920ED3539}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4231EB0-01FA-44EA-ADDE-BE1AB058A302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B48D85-8F97-4A36-AE68-2B4C852AE4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B48D85-8F97-4A36-AE68-2B4C852AE4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B48D85-8F97-4A36-AE68-2B4C852AE4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B48D85-8F97-4A36-AE68-2B4C852AE4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E83F57F-DC5C-408D-B311-5B11A5940823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E83F57F-DC5C-408D-B311-5B11A5940823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E83F57F-DC5C-408D-B311-5B11A5940823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E83F57F-DC5C-408D-B311-5B11A5940823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B955131-DB48-4707-8033-E56513FF4687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B955131-DB48-4707-8033-E56513FF4687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B955131-DB48-4707-8033-E56513FF4687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B955131-DB48-4707-8033-E56513FF4687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7C6BA5-64CB-4867-9AD3-B63BF42B152E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7C6BA5-64CB-4867-9AD3-B63BF42B152E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7C6BA5-64CB-4867-9AD3-B63BF42B152E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7C6BA5-64CB-4867-9AD3-B63BF42B152E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AAE3F90-909C-47D5-BE44-60628A1D7569}
+	EndGlobalSection
+EndGlobal
