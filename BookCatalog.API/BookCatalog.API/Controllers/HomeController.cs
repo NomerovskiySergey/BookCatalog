@@ -1,5 +1,6 @@
 ﻿namespace BookCatalog.API.Controllers
 {
+    using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,13 @@
         public IActionResult LoadGridData()
         {
             return StatusCode((int)HttpStatusCode.BadRequest);
+        }
+
+        [HttpGet]
+        [Route("api/bookcatalog/book/test")]
+        public IActionResult Test()
+        {
+            throw new Exception("Test custom exception");
         }
     }
 }

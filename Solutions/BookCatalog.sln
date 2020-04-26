@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Web", "..\BookCatalog.Onion\BookCatalog\BookCatalog.Web.csproj", "{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Business", "..\BookCatalog.Onion\BookCatalog.Business\BookCatalog.Business.csproj", "{DE207555-1559-49D9-B2AF-E9744CE9282C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.DAL", "..\BookCatalog.Onion\BookCatalog.DAL\BookCatalog.DAL.csproj", "{03644716-F045-43E9-A4A1-74ACE327A451}"
@@ -29,10 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4D29153-2E30-4AF2-ADD7-A3378B518AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE207555-1559-49D9-B2AF-E9744CE9282C}.Release|Any CPU.ActiveCfg = Release|Any CPU
