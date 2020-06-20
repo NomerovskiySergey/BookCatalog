@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BookCatalog.Bootstrap\BookCatalog.Bootstrap.csproj" />
     <ProjectReference Include="..\BookCatalog.ViewModel\BookCatalog.ViewModel.csproj" />
   </ItemGroup>
 

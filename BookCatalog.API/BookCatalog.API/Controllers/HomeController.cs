@@ -1,12 +1,19 @@
-﻿namespace BookCatalog.API.Controllers
-{
-    using System;
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using BookCatalog.Service;
 
+namespace BookCatalog.API.Controllers
+{
     [ApiController]
     public class HomeController : ControllerBase
     {
+        private IDataProvider _dataprovider;
+        public HomeController(IDataProvider provider)
+        {
+            _dataprovider = provider;
+        }
+
         [HttpGet]
         [Route("api/bookcatalog/grid/get")]
         public IActionResult LoadGridData()
@@ -18,7 +25,8 @@
         [Route("api/bookcatalog/book/test")]
         public IActionResult Test()
         {
-            throw new Exception("Test custom exception");
+
+            throw new Exception(_dataprovider.Get()) ;
         }
     }
 }

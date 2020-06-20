@@ -2,7 +2,6 @@
 namespace BookCatalog.API.Controllers
 {
     using System.Net;
-    using BookCatalog.ViewModel;
     using Microsoft.AspNetCore.Mvc;
 
     [ApiController]
@@ -10,7 +9,7 @@ namespace BookCatalog.API.Controllers
     {
         [HttpPost]
         [Route("api/bookcatalog/book/create")]
-        public IActionResult Create(BookVM book)
+        public IActionResult Create(ViewModel.BookVM book)
         {
             return StatusCode((int)HttpStatusCode.BadRequest);
         }
@@ -31,7 +30,7 @@ namespace BookCatalog.API.Controllers
 
         [HttpPatch]
         [Route("api/bookcatalog/book/update/{id}")]
-        public IActionResult UpdateBook(int id, BookVM data)
+        public IActionResult UpdateBook(int id, ViewModel.BookVM data)
         {
             return StatusCode((int)HttpStatusCode.BadRequest);
         }
