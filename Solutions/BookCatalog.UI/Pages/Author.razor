@@ -1,0 +1,17 @@
+﻿@page "/author"
+
+    <EditForm Model="_model">
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <InputText id="first_name" class="form-control" @bind-Value="_model.FirstName" />
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <InputText id="last_name" class="form-control" @bind-Value="_model.LastName" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </EditForm>
+@code {
+    private AuthorVM _model = new AuthorVM();
+}

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookCatalog.Tests", "..\Boo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Domain", "..\BookCatalog.Onion\BookCatalog.Domain\BookCatalog.Domain.csproj", "{3906C388-9A03-4398-955D-7E23A1F27489}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.UI", "BookCatalog.UI\BookCatalog.UI.csproj", "{7B069270-A771-45F6-96C5-DA63D59D24CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3906C388-9A03-4398-955D-7E23A1F27489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3906C388-9A03-4398-955D-7E23A1F27489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3906C388-9A03-4398-955D-7E23A1F27489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B069270-A771-45F6-96C5-DA63D59D24CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B069270-A771-45F6-96C5-DA63D59D24CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B069270-A771-45F6-96C5-DA63D59D24CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B069270-A771-45F6-96C5-DA63D59D24CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
